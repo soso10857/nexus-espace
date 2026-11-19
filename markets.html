@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080d17">
+<title>NEXUS MARKETS — Market intelligence</title>
+<style>
+:root{--bg:#080d17;--panel:#101827;--panel2:#141f31;--line:#243249;--muted:#8fa1bb;--text:#edf3ff;--cyan:#6ee7f9;--blue:#6d9eff;--green:#57d69a;--red:#ff7888;--gold:#f3c969;--violet:#b29aff;--shadow:0 16px 45px #0005}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -20%,#1a3151 0,transparent 42%),var(--bg);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}button,input,select{font:inherit}button{cursor:pointer}.app{min-height:100vh}.top{height:68px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:#09111feF;position:sticky;top:0;z-index:20;backdrop-filter:blur(18px)}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.13em}.mark{width:34px;height:34px;border:1px solid #5ca9cb;border-radius:10px;display:grid;place-items:center;color:var(--cyan);font-size:18px;background:#10263a}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.18em;font-weight:600;margin-top:2px}.topright{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:12px}.status{color:var(--gold);font-size:10px;letter-spacing:.1em}.layout{display:grid;grid-template-columns:224px minmax(0,1fr);max-width:1800px;margin:auto}.side{padding:22px 14px;border-right:1px solid var(--line);min-height:calc(100vh - 68px);position:sticky;top:68px;height:calc(100vh - 68px);overflow:auto}.side h4{font-size:9px;color:#60748f;letter-spacing:.18em;margin:18px 10px 8px}.nav{display:flex;align-items:center;gap:11px;width:100%;padding:11px 12px;border:1px solid transparent;background:transparent;color:#aebdd2;text-align:left;border-radius:10px;margin:3px 0;font-size:12px}.nav:hover,.nav.active{background:#14243a;border-color:#28445e;color:#eaf6ff}.nav.active{box-shadow:inset 2px 0 var(--cyan)}.nav .ico{width:18px;text-align:center;color:var(--cyan)}.sidefoot{margin:22px 8px;padding:12px;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:10px}.main{padding:24px;min-width:0}.page{display:none}.page.active{display:block}.eyebrow{color:var(--cyan);font-size:9px;letter-spacing:.2em;font-weight:800}.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:20px}.hero h1{font-size:clamp(25px,3vw,38px);line-height:1.05;margin:7px 0 8px;letter-spacing:-.04em}.sub{color:var(--muted);margin:0;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid #31506d;background:#142b43;color:#eaf7ff;padding:9px 13px;border-radius:9px;font-weight:700;font-size:11px}.btn:hover{filter:brightness(1.18)}.btn.primary{background:linear-gradient(120deg,#5bc7e3,#6d9eff);color:#07121d;border:0}.btn.ghost{background:transparent;border-color:var(--line);color:#b9c8dd}.btn.danger{border-color:#6e3441;background:#321b27;color:#ffb3bc}.grid{display:grid;gap:13px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:14px}.card,.panel{background:linear-gradient(150deg,#121d2d,#0f1725);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}.stat{padding:15px 16px;min-height:95px}.stat label{font-size:9px;letter-spacing:.13em;color:var(--muted)}.stat strong{display:block;font-size:24px;letter-spacing:-.04em;margin:6px 0 2px}.stat small{font-size:10px;color:var(--muted)}.positive{color:var(--green)}.negative{color:var(--red)}.muted{color:var(--muted)}.two{grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr)}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.panel{padding:16px;margin-bottom:14px;min-width:0}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}.panelhead h2,.panel h2{font-size:14px;margin:0;letter-spacing:-.01em}.panelhead small{color:var(--muted);font-size:10px}.chartbox{height:360px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#0a111d}.chartbox iframe{width:100%;height:100%;border:0}.tickerstrip{display:flex;gap:10px;overflow:auto;padding:2px 0 10px}.ticker{min-width:140px;padding:11px;border:1px solid var(--line);border-radius:10px;background:#101b2b}.ticker b{font-size:12px}.ticker small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px}table{width:100%;border-collapse:collapse;min-width:650px}th{color:#8295af;text-transform:uppercase;letter-spacing:.1em;font-size:9px;text-align:left;background:#111d2c;position:sticky;top:0}td,th{padding:11px 12px;border-bottom:1px solid #202d40;font-size:11px}tbody tr{cursor:pointer}tbody tr:hover{background:#17263a}tbody tr:last-child td{border-bottom:0}.company{font-weight:800;color:#eef5ff}.symbol{color:var(--cyan);font-weight:800}.tag{display:inline-block;border:1px solid #30435b;background:#142337;color:#a9c0d9;border-radius:99px;padding:3px 7px;font-size:9px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.field{background:#0b1422;border:1px solid #2a3b52;color:var(--text);border-radius:9px;padding:9px 11px;min-width:0;outline:none}.field:focus{border-color:#5aafcf;box-shadow:0 0 0 2px #5aafcf22}.search{flex:1;min-width:200px}.select{min-width:150px}.detailhead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}.pricebig{font-size:30px;font-weight:850;letter-spacing:-.05em}.metricgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.metric{background:#0b1422;border:1px solid var(--line);border-radius:9px;padding:11px}.metric label{display:block;color:var(--muted);font-size:9px;margin-bottom:5px}.metric b{font-size:13px}.tabs{display:flex;gap:5px;overflow:auto;border-bottom:1px solid var(--line);margin:14px 0}.tab{border:0;border-bottom:2px solid transparent;background:transparent;color:var(--muted);padding:9px 11px;font-size:11px;white-space:nowrap}.tab.active{color:var(--cyan);border-color:var(--cyan)}.note{padding:11px 12px;border:1px solid #5c4b27;background:#292315;color:#e9d6a2;border-radius:9px;font-size:10px;margin:10px 0}.notice{padding:11px 12px;border:1px solid #28536a;background:#102536;color:#b9e9f5;border-radius:9px;font-size:10px;margin:10px 0}.empty{padding:30px;text-align:center;color:var(--muted);font-size:12px}.listitem{padding:12px 0;border-bottom:1px solid var(--line)}.listitem:last-child{border:0}.listitem b{font-size:11px}.listitem p{margin:4px 0 0;color:var(--muted);font-size:10px}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.formrow label{font-size:10px;color:var(--muted);display:block;margin-bottom:5px}.formrow .field{width:100%}.footer{text-align:center;color:#596d88;font-size:9px;padding:18px}.pill{border:1px solid var(--line);border-radius:99px;padding:5px 8px;color:var(--muted);font-size:9px}.small{font-size:10px}.hidden{display:none!important}.mobilemenu{display:none}
+@media(max-width:1050px){.layout{grid-template-columns:190px minmax(0,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.metricgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.top{height:60px;padding:0 13px}.topright .hide-mobile{display:none}.layout{display:block}.side{position:fixed;z-index:30;top:60px;left:-250px;width:230px;height:calc(100vh - 60px);background:#0b1422;transition:left .2s;box-shadow:var(--shadow)}.side.open{left:0}.mobilemenu{display:inline-flex}.main{padding:17px 12px}.hero{align-items:flex-start;flex-direction:column}.stats{gap:8px}.stat{padding:12px;min-height:84px}.stat strong{font-size:20px}.chartbox{height:300px}.three{grid-template-columns:1fr}.metricgrid{grid-template-columns:repeat(2,1fr)}.formrow{grid-template-columns:1fr}.brand{font-size:12px}.brand small{font-size:8px}}
+
+.localchart{height:100%;width:100%;display:block;background:linear-gradient(180deg,#0c1726,#09111c);}
+.localchart-wrap{position:relative;height:360px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#09111c}
+.localchart-wrap.large{height:490px}.localchart-wrap.small{height:190px}
+.localchart-label{position:absolute;left:12px;top:10px;z-index:2;font-size:10px;color:#91a8c4;pointer-events:none}
+.chartgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.charttile{padding:12px;border:1px solid var(--line);border-radius:12px;background:#101a29;min-width:0}
+.charttile-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:11px}
+.charttile-head strong{color:#edf3ff}.charttile-head small{color:var(--muted)}
+.chart-controls{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.chart-controls .btn{padding:7px 10px}.chart-controls .btn.active{border-color:var(--cyan);color:var(--cyan);background:#123047}
+.simflag{display:inline-flex;align-items:center;gap:5px;border:1px solid #66552b;background:#292315;color:#f1d58b;border-radius:99px;padding:4px 8px;font-size:9px;letter-spacing:.06em}
+@media(max-width:900px){.chartgrid{grid-template-columns:1fr}.localchart-wrap.large{height:390px}}
+
+.asset-table{width:100%;min-width:0}.asset-table td,.asset-table th{padding:9px 8px}.asset-symbol{font-weight:850;color:var(--cyan)}.asset-qty{font-variant-numeric:tabular-nums}.research-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.research-links a{color:var(--cyan);border:1px solid var(--line);border-radius:8px;padding:7px 9px;text-decoration:none;font-size:10px}.research-links a:hover{background:#14243a}.metric small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.section-caption{font-size:10px;color:var(--muted);margin:0 0 10px}
+
+/* V4 — conception mobile prioritaire */
+@media(max-width:720px){
+  body{font-size:13px;padding-bottom:76px}.top{height:56px;padding:0 10px;gap:8px}.topright{gap:7px}.topright .status{font-size:8px}.topright .hide-mobile#marketClock{display:inline!important;font-size:8px;white-space:nowrap}.topright .pill{display:none}.brand{font-size:11px;letter-spacing:.08em;gap:7px}.mark{width:29px;height:29px}.brand small{font-size:7px}.mobilemenu{display:none!important}
+  .layout{display:block}.side{position:fixed;left:0;right:0;bottom:0;top:auto;width:100%;height:68px;min-height:0;padding:5px 4px calc(5px + env(safe-area-inset-bottom));display:flex;align-items:stretch;gap:2px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;background:#081321f5;border-right:0;border-top:1px solid #29405b;z-index:50;box-shadow:0 -8px 30px #0007;scrollbar-width:none}.side::-webkit-scrollbar{display:none}.side h4,.sidefoot{display:none}.side .nav{flex:0 0 auto;width:auto;min-width:63px;max-width:83px;height:55px;margin:0;padding:5px 7px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;border-radius:9px;font-size:8px;line-height:1.1;text-align:center;white-space:normal}.side .nav .ico{width:auto;font-size:17px;line-height:1.1}.side .nav.active{box-shadow:inset 0 2px var(--cyan);background:#142b43}.main{padding:13px 10px 20px}.hero{margin-bottom:13px;gap:10px}.hero h1{font-size:25px}.eyebrow{font-size:8px}.sub{font-size:11px}.actions{width:100%}.actions .btn{flex:1}.grid{gap:8px}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.stat{padding:10px;min-height:78px;border-radius:11px}.stat label{font-size:8px}.stat strong{font-size:17px;margin:5px 0 1px}.stat small{font-size:9px}.panel{padding:11px;margin-bottom:9px;border-radius:12px}.panelhead{align-items:flex-start;gap:7px}.panelhead h2,.panel h2{font-size:13px}.panelhead small{font-size:9px}.chartgrid{grid-template-columns:1fr;gap:8px}.charttile{padding:8px}.localchart-wrap{height:245px}.localchart-wrap.large{height:300px}.localchart-wrap.small{height:160px}.chartbox{height:260px}.toolbar{display:grid;grid-template-columns:1fr 1fr;gap:7px}.toolbar .search,.toolbar input[type=search]{grid-column:1/-1;min-width:0;width:100%}.toolbar .field,.toolbar .btn{width:100%;min-width:0;min-height:40px;font-size:11px}.toolbar .btn{padding:8px}.chart-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.chart-controls .btn{min-height:38px}.metricgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.metric{padding:8px}.metric label{font-size:8px}.metric b{font-size:12px}.formrow{grid-template-columns:1fr;gap:9px}.formrow label{font-size:10px}.formrow .field{min-height:42px}.detailhead{gap:8px}.pricebig{font-size:25px}.tabs{margin:9px 0}.tab{padding:8px;font-size:10px}.tablewrap{margin:0 -1px;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}table{min-width:610px}td,th{padding:9px 8px;font-size:10px}.asset-table{min-width:510px}.notice,.note{font-size:9px;padding:9px}.research-links a{font-size:9px}.footer{padding:10px 8px 15px}
+}
+@media(min-width:721px) and (max-width:1050px){.main{padding:17px}.side{width:auto}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+</style>
+</head>
+<body><div class="app">
+<header class="top"><button class="btn ghost mobilemenu" id="menuBtn">☰</button><div class="brand"><div class="mark">⌁</div><div>NEXUS MARKETS<small>MARKET INTELLIGENCE · EQUITY RESEARCH</small></div></div><div class="topright"><span class="status">● RESEARCH MODE</span><span class="hide-mobile" id="marketClock">--/--/---- · --:--:--</span><span class="hide-mobile">MULTI-ASSET / GLOBAL</span><span class="pill">BOURSE · ANALYSE · PAPER TRADING</span></div></header>
+<div class="layout"><aside class="side" id="sidebar"><h4>MARKET OVERVIEW</h4><button class="nav active" data-page="dashboard"><span class="ico">◈</span>Vue générale</button><button class="nav" data-page="markets"><span class="ico">▥</span>Marchés & actions</button><button class="nav" data-page="charts"><span class="ico">⌁</span>Graphiques</button><button class="nav" data-page="screener"><span class="ico">⌕</span>Stock screener</button><h4>RESEARCH CENTER</h4><button class="nav" data-page="research"><span class="ico">◉</span>Recherche entreprise</button><button class="nav" data-page="news"><span class="ico">▤</span>Actualités</button><button class="nav" data-page="compare"><span class="ico">⇄</span>Comparateur</button><button class="nav" data-page="calendar"><span class="ico">▦</span>Calendrier</button><h4>PERSONAL WORKSPACE</h4><button class="nav" data-page="watchlist"><span class="ico">☆</span>Watchlist</button><button class="nav" data-page="portfolio"><span class="ico">◫</span>Portefeuille virtuel</button><button class="nav" data-page="settings"><span class="ico">⚙</span>Sources & paramètres</button><div class="sidefoot">NEXUS MARKETS · V5.0<br><span style="color:var(--gold)">● MODE ÉDUCATIF / SIMULATION</span></div></aside>
+<main class="main">
+<section class="page active" id="dashboard"><div class="hero"><div><div class="eyebrow">GLOBAL MARKET INTELLIGENCE</div><h1>Market overview<span style="color:var(--cyan)">.</span></h1><p class="sub">Terminal boursier indépendant : explorer les sociétés, analyser les graphiques et tester des stratégies en portefeuille virtuel.</p></div><div class="actions"><button class="btn primary" onclick="go('markets')">Explorer les actions →</button></div></div>
+<div class="grid stats"><div class="card stat"><label>UNIVERS DISPONIBLE</label><strong id="universeCount">586</strong><small>Sociétés répertoriées</small></div><div class="card stat"><label>WATCHLIST</label><strong id="watchCount">0</strong><small>Entreprises surveillées</small></div><div class="card stat"><label>PORTEFEUILLE VIRTUEL</label><strong id="portfolioValue">987 656 €</strong><small>Capital pédagogique initial</small></div><div class="card stat"><label>DONNÉES EXTERNES</label><strong id="connectionStatus" style="font-size:17px">Non connectées</strong><small id="connectionSub">Graphiques locaux</small></div></div>
+<div class="panel"><div class="panelhead"><h2>Indice de marché en mouvement</h2><span class="simflag">● INDICE LOCAL</span></div><div class="chartgrid" id="dashboardChartGrid"></div><p class="small muted">Un seul graphique principal pour suivre le mouvement du marché. Ouvre l’espace Graphiques pour passer en chandeliers, changer la période et analyser un titre. Les cours locaux sont générés et ne représentent pas les cotations réelles.</p></div>
+<div class="grid two"><div class="panel"><div class="panelhead"><h2>Entreprises populaires</h2><button class="btn ghost" onclick="go('markets')">Voir tout le catalogue →</button></div><div id="popularList"></div></div><div class="panel"><div class="panelhead"><h2>Ton espace de recherche</h2><span class="pill">LOCAL</span></div><div class="listitem"><b>Watchlist</b><p>Enregistre des entreprises pour les retrouver rapidement.</p></div><div class="listitem"><b>Comparateur</b><p>Compare les métriques de plusieurs entreprises côte à côte.</p></div><div class="listitem"><b>Portefeuille virtuel</b><p>Teste des achats et ventes fictifs sans argent réel.</p></div><div class="note">Les données de marché et de recherche ne constituent pas des recommandations financières.</div></div></div></section>
+<section class="page" id="markets"><div class="hero"><div><div class="eyebrow">GLOBAL EQUITY UNIVERSE</div><h1>Markets & companies<span style="color:var(--cyan)">.</span></h1><p class="sub">Catalogue intégré extensible, filtrable par secteur, place de marché et nom. Le nombre dépend des symboles disponibles chez le fournisseur.</p></div><span class="pill" id="resultCount">CATALOGUE LOCAL</span></div><div class="toolbar"><input class="field search" id="marketSearch" placeholder="Rechercher une société ou un ticker…"><select class="field select" id="sectorFilter"><option value="">Tous les secteurs</option></select><button class="btn ghost" id="importUniverse">Importer le catalogue étendu</button><select class="field select" id="exchangeFilter"><option value="">Toutes les places</option><option>NASDAQ</option><option>NYSE</option><option>OTC</option><option>EURONEXT</option><option>LSE</option><option>XETRA</option><option>SIX</option><option>TSE</option><option>HKEX</option><option>CBOE</option></select></div><div class="panel"><div class="tablewrap"><table><thead><tr><th>Entreprise</th><th>Ticker</th><th>Secteur</th><th>Marché</th><th>Pays</th><th>Action</th></tr></thead><tbody id="marketRows"></tbody></table></div></div></section>
+<section class="page" id="charts"><div class="hero"><div><div class="eyebrow">TECHNICAL ANALYSIS LAB</div><h1>Advanced charts<span style="color:var(--cyan)">.</span></h1><p class="sub">Un laboratoire graphique autonome : chandeliers, courbes, volumes et indicateurs animés.</p></div><span class="simflag">● GRAPHIQUES LOCAUX</span></div>
+<div class="toolbar"><input class="field search" id="chartSearch" list="symbolOptions" placeholder="Ticker, ex. AAPL"><datalist id="symbolOptions"></datalist><button class="btn primary" id="loadChart">Afficher ce titre</button><select class="field" id="chartStyle"><option value="candle">Chandeliers</option><option value="line">Courbe</option><option value="area">Aire</option><option value="bars">Barres OHLC</option></select><select class="field" id="chartPeriod"><optgroup label="Temps réel local"><option value="1s">1 seconde</option><option value="5s">5 secondes</option><option value="15s">15 secondes</option><option value="30s">30 secondes</option><option value="1m" selected>1 minute</option><option value="5m">5 minutes</option><option value="15m">15 minutes</option><option value="30m">30 minutes</option><option value="1h">1 heure</option><option value="4h">4 heures</option></optgroup><optgroup label="Long terme"><option value="1D">1 jour</option><option value="1W">1 semaine</option><option value="1M">1 mois</option><option value="1Y">1 an</option><option value="5Y">5 ans</option></optgroup></select><button class="btn ghost" id="chartPause">Pause animation</button></div>
+<div class="panel"><div class="panelhead"><div><h2 id="chartTitle">AAPL · Apple Inc.</h2><small id="chartSubtitle">Série locale · mise à jour continue</small></div><span class="simflag">DONNÉES LOCALES</span></div><div class="localchart-wrap large"><canvas id="mainLocalChart" class="localchart"></canvas></div><div class="chart-controls" style="margin-top:10px"><button class="btn ghost active" data-indicator="volume">Volume</button><button class="btn ghost active" data-indicator="sma">Moyenne mobile</button><button class="btn ghost" data-indicator="rsi">RSI (14)</button><span class="small muted" id="chartReadout">Les cours locaux sont générés et ne constituent pas des cotations de marché.</span></div></div>
+<div class="panel"><div class="panelhead"><h2>Market watch · 8 graphiques supplémentaires</h2><small>Animation indépendante par instrument</small></div><div class="chartgrid" id="allChartsGrid"></div></div>
+<div class="notice">Important : le mode local ne nécessite ni compte, ni clé API, ni Internet. Les cours, volumes et historiques locaux sont générés et ne sont pas des cotations réelles. Pour afficher de vrais cours, il faudra reconnecter une source de données externe ; les graphiques locaux resteront disponibles sans connexion.</div></section>
+<section class="page" id="screener"><div class="hero"><div><div class="eyebrow">DISCOVERY & FILTERING</div><h1>Stock screener<span style="color:var(--cyan)">.</span></h1><p class="sub">Repère les entreprises selon leur secteur, leur place de cotation et leur nom.</p></div></div><div class="panel"><div class="toolbar"><input class="field search" id="screenSearch" placeholder="Nom ou ticker"><select class="field select" id="screenSector"><option value="">Tous les secteurs</option></select><select class="field select" id="screenExchange"><option value="">Toutes les places</option><option>NASDAQ</option><option>NYSE</option><option>OTC</option><option>EURONEXT</option><option>LSE</option><option>XETRA</option><option>SIX</option><option>TSE</option><option>HKEX</option><option>CBOE</option></select></div><div id="screenSummary" class="small muted" style="margin-bottom:10px"></div><div class="tablewrap"><table><thead><tr><th>Entreprise</th><th>Ticker</th><th>Secteur</th><th>Marché</th><th>Capitalisation estimée</th><th>PER estimé</th><th>Ouvrir</th></tr></thead><tbody id="screenRows"></tbody></table></div></div><div class="notice">Le screener filtre le catalogue et affiche des indicateurs estimatifs de démonstration. Les chiffres réels ne seront utilisés que si le fournisseur les renvoie.</div></section>
+<section class="page" id="research"><div class="hero"><div><div class="eyebrow">COMPANY INTELLIGENCE DOSSIER</div><h1>Company research<span style="color:var(--cyan)">.</span></h1><p class="sub">Un dossier unique pour consulter le cours, les indicateurs, le profil et les sources.</p></div></div><div class="toolbar"><input class="field search" id="researchSearch" list="symbolOptions" placeholder="Choisir une entreprise (ex. AAPL)"><button class="btn primary" id="researchLoad">Analyser l'entreprise</button></div><div id="researchContent"><div class="panel empty">Sélectionne une entreprise pour ouvrir son dossier de recherche.</div></div></section>
+<section class="page" id="news"><div class="hero"><div><div class="eyebrow">NEWS & CORPORATE EVENTS</div><h1>News intelligence<span style="color:var(--cyan)">.</span></h1><p class="sub">Actualités financières, communiqués et événements d'entreprise.</p></div></div><div class="toolbar"><input class="field search" id="newsSearch" list="symbolOptions" placeholder="Ticker (ex. NVDA), vide pour le flux général"><button class="btn primary" id="newsLoad">Charger les actualités</button></div><div id="newsContent" class="panel"><div class="empty">Clique sur « Charger les actualités » : sans clé API, MARKETS ouvre des recherches externes réelles au lieu d’afficher de faux articles.</div></div></section>
+<section class="page" id="compare"><div class="hero"><div><div class="eyebrow">RELATIVE COMPANY ANALYSIS</div><h1>Compare companies<span style="color:var(--cyan)">.</span></h1><p class="sub">Compare les sociétés sélectionnées sur leur identité, leur secteur et les données fondamentales accessibles.</p></div></div><div class="panel"><div class="toolbar"><input class="field search" id="compareSearch" list="symbolOptions" placeholder="Ticker à ajouter, ex. MSFT"><button class="btn primary" id="compareAdd">Ajouter</button></div><div id="compareContent" class="empty">Ajoute jusqu'à cinq entreprises pour commencer la comparaison.</div></div></section>
+<section class="page" id="calendar"><div class="hero"><div><div class="eyebrow">EARNINGS & CORPORATE CALENDAR</div><h1>Events calendar<span style="color:var(--cyan)">.</span></h1><p class="sub">Calendrier d'annonces et de résultats, lorsque les données sont accessibles.</p></div></div><div class="panel"><div class="toolbar"><input class="field" type="datetime-local" step="1" id="calendarFrom" aria-label="Début : date et heure"><input class="field" type="datetime-local" step="1" id="calendarTo" aria-label="Fin : date et heure"><button class="btn primary" id="calendarLoad">Charger le calendrier</button></div><div id="calendarContent" class="empty">Choisis une période puis clique sur « Charger le calendrier ». Sans API, des liens vers des calendriers publics sont proposés.</div></div></section>
+<section class="page" id="watchlist"><div class="hero"><div><div class="eyebrow">PERSONAL RESEARCH LIST</div><h1>My watchlist<span style="color:var(--cyan)">.</span></h1><p class="sub">Les sociétés que tu souhaites suivre.</p></div></div><div class="panel"><div id="watchContent" class="empty">Ta watchlist est vide. Ajoute des entreprises depuis le catalogue.</div></div></section>
+<section class="page" id="portfolio"><div class="hero"><div><div class="eyebrow">PORTFOLIO & ASSET ALLOCATION</div><h1>Virtual portfolio<span style="color:var(--cyan)">.</span></h1><p class="sub">Un espace de simulation multi-actifs : actions, devises et crypto-actifs. Les soldes et les 87 positions initiales sont une simulation pédagogique, affichée avec un équivalent global en euros.</p></div><button class="btn ghost" id="resetPortfolio">Réinitialiser la simulation</button></div><div class="note">SIMULATION UNIQUEMENT — Aucun argent réel, aucun compte bancaire et aucun ordre réel ne sont connectés. Les montants sont convertis en euros pour le total. Les taux de change et prix crypto restent des valeurs de démonstration.</div><div class="grid stats"><div class="card stat"><label>VALEUR TOTALE ESTIMÉE</label><strong id="pValue">987 656,00 €</strong><small>Équivalent global converti en euros</small></div><div class="card stat"><label>DEVISES DISPONIBLES</label><strong id="pCash">—</strong><small>Équivalent converti en euros</small></div><div class="card stat"><label>CRYPTO-ACTIFS</label><strong id="pCrypto">13</strong><small>Actifs numériques détenus virtuellement</small></div><div class="card stat"><label>ENTREPRISES EN PORTEFEUILLE</label><strong id="pPositions">87</strong><small>Sociétés distinctes détenues</small></div></div><div class="grid two"><div class="panel"><div class="panelhead"><h2>Liquidités par devise</h2><span class="pill">MULTI-CURRENCY</span></div><div id="walletsContent"></div></div><div class="panel"><div class="panelhead"><h2>Crypto-actifs détenus</h2><span class="pill">DIGITAL ASSETS</span></div><div id="cryptoContent"></div></div></div><div class="panel"><div class="panelhead"><h2>Effectuer une transaction virtuelle</h2><span class="pill">PAPER TRADING</span></div><div class="formrow"><div><label>Type d'actif</label><select class="field" style="width:100%" id="tradeType"><option value="stock">Actions</option><option value="crypto">Crypto-actifs</option><option value="fiat">Devises (conversion)</option></select></div><div><label>Actif / symbole</label><input class="field" style="width:100%" id="tradeSymbol" list="tradeOptions" placeholder="Ex. AAPL, BTC, EUR"><datalist id="tradeOptions"></datalist></div><div><label>Quantité</label><input class="field" style="width:100%" id="tradeQty" type="number" min="0.000001" step="0.000001" value="1"></div><div><label>Estimation du montant</label><div class="field" style="width:100%" id="tradeEstimate">Choisis un actif</div></div></div><div class="notice" id="tradeQuote">Choisis un actif pour afficher son prix simulé et la devise de référence.</div><div class="toolbar" style="margin-top:12px"><button class="btn primary" id="tradeBuy">Acheter virtuellement</button><button class="btn danger" id="tradeSell">Vendre / convertir virtuellement</button><span class="small muted" id="tradeFeedback">Les transactions sont enregistrées dans l'historique local.</span></div></div><div class="panel"><div class="panelhead"><h2>Actions détenues virtuellement</h2><span class="pill">EQUITIES</span></div><div id="positionsContent" class="empty">Aucune position.</div></div><div class="panel"><div class="panelhead"><h2>Historique des opérations</h2><span class="pill">DATE · HEURE · SECONDE</span></div><div id="tradeHistory" class="empty">Aucune transaction.</div></div></section>
+<section class="page" id="settings"><div class="hero"><div><div class="eyebrow">DATA PROVIDERS & CONFIGURATION</div><h1>Sources & settings<span style="color:var(--cyan)">.</span></h1><p class="sub">Configure les connexions de données. Les clés restent dans le stockage local de ce navigateur.</p></div></div><div class="panel"><h2>1. Twelve Data — cours et fondamentaux</h2><p class="muted small">Utilisé pour les cours, historiques, profils, statistiques et états financiers selon ton abonnement et les droits du symbole.</p><div class="formrow"><div><label>Clé API Twelve Data</label><input class="field" style="width:100%" id="twelveKey" type="password" placeholder="Ta clé API"></div><div><label>Statut</label><div class="field" id="twelveStatus" style="width:100%">Non configuré</div></div></div><div class="toolbar" style="margin-top:10px"><button class="btn primary" id="saveTwelve">Enregistrer localement</button><a class="btn ghost" href="https://twelvedata.com/pricing" target="_blank" rel="noopener">Offres et quotas ↗</a><a class="btn ghost" href="https://twelvedata.com/docs" target="_blank" rel="noopener">Documentation ↗</a></div></div><div class="panel"><h2>2. Alpha Vantage — actualités financières</h2><p class="muted small">Connecteur optionnel pour les actualités et le sentiment. Les limites d'accès varient selon l'offre.</p><div class="formrow"><div><label>Clé API Alpha Vantage</label><input class="field" style="width:100%" id="alphaKey" type="password" placeholder="Ta clé API"></div><div><label>Statut</label><div class="field" id="alphaStatus" style="width:100%">Non configuré</div></div></div><div class="toolbar" style="margin-top:10px"><button class="btn primary" id="saveAlpha">Enregistrer localement</button><a class="btn ghost" href="https://www.alphavantage.co/documentation/" target="_blank" rel="noopener">Documentation ↗</a></div></div><div class="panel"><h2>3. Qualité des données & sécurité</h2><div class="notice">Les clés API enregistrées dans un navigateur ne sont pas protégées comme dans un serveur privé. Ne publie jamais de clé dans le code HTML, GitHub ou une capture d'écran. Pour un déploiement public durable, il faudra un petit serveur intermédiaire (proxy) qui garde les clés hors du navigateur.</div><ul class="small muted"><li>Chaque donnée doit afficher sa source, sa date et son éventuel délai.</li><li>Une valeur absente ne sera pas remplacée par un chiffre inventé.</li><li>Les données indisponibles selon le forfait seront signalées comme telles.</li><li>Les graphiques locaux fonctionnent hors ligne ; leurs cours sont simulés et ne représentent pas les prix de marché.</li><li>Les transactions du portefeuille sont toujours fictives.</li></ul><button class="btn ghost" id="clearKeys">Effacer les clés enregistrées sur cet appareil</button></div></section>
+</main></div><div class="footer">NEXUS MARKETS · TERMINAL BOURSIER & ANALYSE DE MARCHÉ · PORTEFEUILLE VIRTUEL</div></div>
+<script>
+const RAW = `
+TECHNOLOGY|AAPL|Apple Inc.|NASDAQ
+TECHNOLOGY|MSFT|Microsoft Corporation|NASDAQ
+TECHNOLOGY|NVDA|NVIDIA Corporation|NASDAQ
+TECHNOLOGY|AMD|Advanced Micro Devices|NASDAQ
+TECHNOLOGY|INTC|Intel Corporation|NASDAQ
+TECHNOLOGY|AVGO|Broadcom Inc.|NASDAQ
+TECHNOLOGY|QCOM|QUALCOMM Incorporated|NASDAQ
+TECHNOLOGY|TXN|Texas Instruments|NASDAQ
+TECHNOLOGY|MU|Micron Technology|NASDAQ
+TECHNOLOGY|AMAT|Applied Materials|NASDAQ
+TECHNOLOGY|LRCX|Lam Research|NASDAQ
+TECHNOLOGY|KLAC|KLA Corporation|NASDAQ
+TECHNOLOGY|ADI|Analog Devices|NASDAQ
+TECHNOLOGY|CSCO|Cisco Systems|NASDAQ
+TECHNOLOGY|ORCL|Oracle Corporation|NYSE
+TECHNOLOGY|IBM|International Business Machines|NYSE
+TECHNOLOGY|NOW|ServiceNow|NYSE
+TECHNOLOGY|CRM|Salesforce|NYSE
+TECHNOLOGY|ADBE|Adobe Inc.|NASDAQ
+TECHNOLOGY|PLTR|Palantir Technologies|NASDAQ
+COMMUNICATION|GOOGL|Alphabet Inc. Class A|NASDAQ
+COMMUNICATION|GOOG|Alphabet Inc. Class C|NASDAQ
+COMMUNICATION|META|Meta Platforms|NASDAQ
+COMMUNICATION|NFLX|Netflix|NASDAQ
+COMMUNICATION|DIS|The Walt Disney Company|NYSE
+COMMUNICATION|CMCSA|Comcast Corporation|NASDAQ
+COMMUNICATION|TMUS|T-Mobile US|NASDAQ
+COMMUNICATION|VZ|Verizon Communications|NYSE
+COMMUNICATION|T|AT&T Inc.|NYSE
+COMMUNICATION|CHTR|Charter Communications|NASDAQ
+COMMUNICATION|SPOT|Spotify Technology|NYSE
+COMMUNICATION|EA|Electronic Arts|NASDAQ
+COMMUNICATION|TTWO|Take-Two Interactive|NASDAQ
+COMMUNICATION|WBD|Warner Bros. Discovery|NASDAQ
+COMMUNICATION|LYV|Live Nation Entertainment|NYSE
+COMMUNICATION|FOXA|Fox Corporation Class A|NASDAQ
+COMMUNICATION|FOX|Fox Corporation Class B|NASDAQ
+COMMUNICATION|OMC|Omnicom Group|NYSE
+COMMUNICATION|IPG|Interpublic Group|NYSE
+COMMUNICATION|RDDT|Reddit Inc.|NYSE
+AUTOMOTIVE|TSLA|Tesla Inc.|NASDAQ
+AUTOMOTIVE|GM|General Motors|NYSE
+AUTOMOTIVE|F|Ford Motor Company|NYSE
+AUTOMOTIVE|TM|Toyota Motor Corporation ADR|NYSE
+AUTOMOTIVE|HMC|Honda Motor ADR|NYSE
+AUTOMOTIVE|RACE|Ferrari N.V.|NYSE
+AUTOMOTIVE|STLA|Stellantis N.V.|NYSE
+AUTOMOTIVE|NIO|NIO Inc.|NYSE
+AUTOMOTIVE|LI|Li Auto Inc.|NASDAQ
+AUTOMOTIVE|XPEV|XPeng Inc.|NYSE
+AUTOMOTIVE|RIVN|Rivian Automotive|NASDAQ
+AUTOMOTIVE|LCID|Lucid Group|NASDAQ
+AUTOMOTIVE|APTV|Aptiv PLC|NYSE
+AUTOMOTIVE|BWA|BorgWarner|NYSE
+AUTOMOTIVE|LEA|Lear Corporation|NYSE
+AUTOMOTIVE|MGA|Magna International|NYSE
+AUTOMOTIVE|ALV|Autoliv Inc.|NYSE
+AUTOMOTIVE|MBLY|Mobileye Global|NASDAQ
+AUTOMOTIVE|CHPT|ChargePoint Holdings|NYSE
+AUTOMOTIVE|QS|QuantumScape|NYSE
+LUXURY & FASHION|LVMUY|LVMH Moët Hennessy Louis Vuitton ADR|OTC
+LUXURY & FASHION|HESAY|Hermès International ADR|OTC
+LUXURY & FASHION|PPRUY|Kering ADR|OTC
+LUXURY & FASHION|CFRUY|Compagnie Financière Richemont ADR|OTC
+LUXURY & FASHION|BURBY|Burberry Group ADR|OTC
+LUXURY & FASHION|MONRY|Moncler ADR|OTC
+LUXURY & FASHION|TPR|Tapestry Inc.|NYSE
+LUXURY & FASHION|CPRI|Capri Holdings|NYSE
+LUXURY & FASHION|RL|Ralph Lauren Corporation|NYSE
+LUXURY & FASHION|PVH|PVH Corp.|NYSE
+LUXURY & FASHION|VFC|V.F. Corporation|NYSE
+LUXURY & FASHION|NKE|NIKE Inc.|NYSE
+LUXURY & FASHION|DECK|Deckers Outdoor|NYSE
+LUXURY & FASHION|CROX|Crocs Inc.|NASDAQ
+LUXURY & FASHION|ONON|On Holding AG|NYSE
+LUXURY & FASHION|LULU|Lululemon Athletica|NASDAQ
+LUXURY & FASHION|ADDYY|Adidas AG ADR|OTC
+LUXURY & FASHION|PUMSY|Puma SE ADR|OTC
+LUXURY & FASHION|EL|Estée Lauder Companies|NYSE
+LUXURY & FASHION|COTY|Coty Inc.|NYSE
+FINANCE|JPM|JPMorgan Chase|NYSE
+FINANCE|BAC|Bank of America|NYSE
+FINANCE|WFC|Wells Fargo|NYSE
+FINANCE|GS|Goldman Sachs|NYSE
+FINANCE|MS|Morgan Stanley|NYSE
+FINANCE|C|Citigroup|NYSE
+FINANCE|BLK|BlackRock|NYSE
+FINANCE|SCHW|Charles Schwab|NYSE
+FINANCE|AXP|American Express|NYSE
+FINANCE|V|Visa Inc.|NYSE
+FINANCE|MA|Mastercard|NYSE
+FINANCE|PYPL|PayPal Holdings|NASDAQ
+FINANCE|COIN|Coinbase Global|NASDAQ
+FINANCE|HOOD|Robinhood Markets|NASDAQ
+FINANCE|BX|Blackstone Inc.|NYSE
+FINANCE|KKR|KKR & Co.|NYSE
+FINANCE|ICE|Intercontinental Exchange|NYSE
+FINANCE|CME|CME Group|NASDAQ
+FINANCE|SPGI|S&P Global|NYSE
+FINANCE|MCO|Moody's Corporation|NYSE
+HEALTHCARE|LLY|Eli Lilly|NYSE
+HEALTHCARE|JNJ|Johnson & Johnson|NYSE
+HEALTHCARE|MRK|Merck & Co.|NYSE
+HEALTHCARE|ABBV|AbbVie|NYSE
+HEALTHCARE|PFE|Pfizer|NYSE
+HEALTHCARE|BMY|Bristol Myers Squibb|NYSE
+HEALTHCARE|AMGN|Amgen|NASDAQ
+HEALTHCARE|GILD|Gilead Sciences|NASDAQ
+HEALTHCARE|REGN|Regeneron Pharmaceuticals|NASDAQ
+HEALTHCARE|VRTX|Vertex Pharmaceuticals|NASDAQ
+HEALTHCARE|ISRG|Intuitive Surgical|NASDAQ
+HEALTHCARE|ABT|Abbott Laboratories|NYSE
+HEALTHCARE|MDT|Medtronic|NYSE
+HEALTHCARE|SYK|Stryker Corporation|NYSE
+HEALTHCARE|BSX|Boston Scientific|NYSE
+HEALTHCARE|ZTS|Zoetis Inc.|NYSE
+HEALTHCARE|CVS|CVS Health|NYSE
+HEALTHCARE|CI|The Cigna Group|NYSE
+HEALTHCARE|HUM|Humana Inc.|NYSE
+HEALTHCARE|HCA|HCA Healthcare|NYSE
+ENERGY|XOM|Exxon Mobil|NYSE
+ENERGY|CVX|Chevron Corporation|NYSE
+ENERGY|COP|ConocoPhillips|NYSE
+ENERGY|SLB|Schlumberger|NYSE
+ENERGY|EOG|EOG Resources|NYSE
+ENERGY|OXY|Occidental Petroleum|NYSE
+ENERGY|PSX|Phillips 66|NYSE
+ENERGY|MPC|Marathon Petroleum|NYSE
+ENERGY|VLO|Valero Energy|NYSE
+ENERGY|HAL|Halliburton|NYSE
+ENERGY|FANG|Diamondback Energy|NASDAQ
+ENERGY|DVN|Devon Energy|NYSE
+ENERGY|FSLR|First Solar|NASDAQ
+ENERGY|ENPH|Enphase Energy|NASDAQ
+ENERGY|SEDG|SolarEdge Technologies|NASDAQ
+ENERGY|BE|Bloom Energy|NYSE
+ENERGY|CTRA|Coterra Energy|NYSE
+ENERGY|VST|Vistra Corp.|NYSE
+ENERGY|EQT|EQT Corporation|NYSE
+ENERGY|APA|APA Corporation|NASDAQ
+INDUSTRIALS|CAT|Caterpillar Inc.|NYSE
+INDUSTRIALS|DE|Deere & Company|NYSE
+INDUSTRIALS|GE|GE Aerospace|NYSE
+INDUSTRIALS|HON|Honeywell International|NASDAQ
+INDUSTRIALS|ETN|Eaton Corporation|NYSE
+INDUSTRIALS|PH|Parker-Hannifin|NYSE
+INDUSTRIALS|EMR|Emerson Electric|NYSE
+INDUSTRIALS|MMM|3M Company|NYSE
+INDUSTRIALS|UPS|United Parcel Service|NYSE
+INDUSTRIALS|FDX|FedEx Corporation|NYSE
+INDUSTRIALS|UNP|Union Pacific|NYSE
+INDUSTRIALS|CSX|CSX Corporation|NASDAQ
+INDUSTRIALS|NSC|Norfolk Southern|NYSE
+INDUSTRIALS|WM|Waste Management|NYSE
+INDUSTRIALS|RSG|Republic Services|NYSE
+INDUSTRIALS|CTAS|Cintas Corporation|NASDAQ
+INDUSTRIALS|PAYX|Paychex Inc.|NASDAQ
+INDUSTRIALS|ROK|Rockwell Automation|NYSE
+INDUSTRIALS|FAST|Fastenal Company|NASDAQ
+INDUSTRIALS|IR|Ingersoll Rand|NYSE
+CONSUMER|AMZN|Amazon.com|NASDAQ
+CONSUMER|WMT|Walmart Inc.|NYSE
+CONSUMER|COST|Costco Wholesale|NASDAQ
+CONSUMER|HD|Home Depot|NYSE
+CONSUMER|LOW|Lowe's Companies|NYSE
+CONSUMER|TGT|Target Corporation|NYSE
+CONSUMER|TJX|TJX Companies|NYSE
+CONSUMER|ROST|Ross Stores|NASDAQ
+CONSUMER|MCD|McDonald's|NYSE
+CONSUMER|SBUX|Starbucks|NASDAQ
+CONSUMER|YUM|Yum! Brands|NYSE
+CONSUMER|CMG|Chipotle Mexican Grill|NYSE
+CONSUMER|KO|Coca-Cola Company|NYSE
+CONSUMER|PEP|PepsiCo|NASDAQ
+CONSUMER|MDLZ|Mondelez International|NASDAQ
+CONSUMER|PG|Procter & Gamble|NYSE
+CONSUMER|CL|Colgate-Palmolive|NYSE
+CONSUMER|DG|Dollar General|NYSE
+CONSUMER|ELF|e.l.f. Beauty|NYSE
+CONSUMER|KR|Kroger Co.|NYSE
+REAL ESTATE|PLD|Prologis|NYSE
+REAL ESTATE|AMT|American Tower|NYSE
+REAL ESTATE|EQIX|Equinix|NASDAQ
+REAL ESTATE|CCI|Crown Castle|NYSE
+REAL ESTATE|SPG|Simon Property Group|NYSE
+REAL ESTATE|O|Realty Income|NYSE
+REAL ESTATE|WELL|Welltower|NYSE
+REAL ESTATE|PSA|Public Storage|NYSE
+REAL ESTATE|DLR|Digital Realty Trust|NYSE
+REAL ESTATE|AVB|AvalonBay Communities|NYSE
+REAL ESTATE|EQR|Equity Residential|NYSE
+REAL ESTATE|VTR|Ventas Inc.|NYSE
+REAL ESTATE|ARE|Alexandria Real Estate Equities|NYSE
+REAL ESTATE|CBRE|CBRE Group|NYSE
+REAL ESTATE|JLL|Jones Lang LaSalle|NYSE
+REAL ESTATE|CUBE|CubeSmart|NYSE
+REAL ESTATE|EXR|Extra Space Storage|NYSE
+REAL ESTATE|MAA|Mid-America Apartment Communities|NYSE
+REAL ESTATE|IRM|Iron Mountain|NYSE
+REAL ESTATE|INVH|Invitation Homes|NYSE
+MATERIALS|LIN|Linde plc|NASDAQ
+MATERIALS|APD|Air Products and Chemicals|NYSE
+MATERIALS|SHW|Sherwin-Williams|NYSE
+MATERIALS|ECL|Ecolab Inc.|NYSE
+MATERIALS|NEM|Newmont Corporation|NYSE
+MATERIALS|GOLD|Barrick Mining Corporation|NYSE
+MATERIALS|FCX|Freeport-McMoRan|NYSE
+MATERIALS|NUE|Nucor Corporation|NYSE
+MATERIALS|STLD|Steel Dynamics|NASDAQ
+MATERIALS|CLF|Cleveland-Cliffs|NYSE
+MATERIALS|AA|Alcoa Corporation|NYSE
+MATERIALS|RIO|Rio Tinto ADR|NYSE
+MATERIALS|BHP|BHP Group ADR|NYSE
+MATERIALS|VALE|Vale S.A. ADR|NYSE
+MATERIALS|TECK|Teck Resources|NYSE
+MATERIALS|MOS|Mosaic Company|NYSE
+MATERIALS|CF|CF Industries|NYSE
+MATERIALS|IFF|International Flavors & Fragrances|NYSE
+MATERIALS|PPG|PPG Industries|NYSE
+MATERIALS|RPM|RPM International|NYSE
+UTILITIES|NEE|NextEra Energy|NYSE
+UTILITIES|SO|Southern Company|NYSE
+UTILITIES|DUK|Duke Energy|NYSE
+UTILITIES|AEP|American Electric Power|NASDAQ
+UTILITIES|EXC|Exelon Corporation|NASDAQ
+UTILITIES|XEL|Xcel Energy|NASDAQ
+UTILITIES|ED|Consolidated Edison|NYSE
+UTILITIES|D|Dominion Energy|NYSE
+UTILITIES|PEG|Public Service Enterprise Group|NYSE
+UTILITIES|WEC|WEC Energy Group|NYSE
+UTILITIES|ES|Eversource Energy|NYSE
+UTILITIES|AWK|American Water Works|NYSE
+UTILITIES|ETR|Entergy Corporation|NYSE
+UTILITIES|PPL|PPL Corporation|NYSE
+UTILITIES|CMS|CMS Energy|NYSE
+UTILITIES|CNP|CenterPoint Energy|NYSE
+UTILITIES|ATO|Atmos Energy|NYSE
+UTILITIES|AES|AES Corporation|NYSE
+UTILITIES|NRG|NRG Energy|NYSE
+UTILITIES|CEG|Constellation Energy|NASDAQ
+AEROSPACE & DEFENSE|RTX|RTX Corporation|NYSE
+AEROSPACE & DEFENSE|LMT|Lockheed Martin|NYSE
+AEROSPACE & DEFENSE|NOC|Northrop Grumman|NYSE
+AEROSPACE & DEFENSE|GD|General Dynamics|NYSE
+AEROSPACE & DEFENSE|BA|Boeing Company|NYSE
+AEROSPACE & DEFENSE|TDG|TransDigm Group|NYSE
+AEROSPACE & DEFENSE|HWM|Howmet Aerospace|NYSE
+AEROSPACE & DEFENSE|LHX|L3Harris Technologies|NYSE
+AEROSPACE & DEFENSE|TXT|Textron Inc.|NYSE
+AEROSPACE & DEFENSE|HEI|HEICO Corporation|NYSE
+AEROSPACE & DEFENSE|AXON|Axon Enterprise|NASDAQ
+AEROSPACE & DEFENSE|CW|Curtiss-Wright|NYSE
+AEROSPACE & DEFENSE|WWD|Woodward Inc.|NASDAQ
+AEROSPACE & DEFENSE|TDY|Teledyne Technologies|NYSE
+AEROSPACE & DEFENSE|ACHR|Archer Aviation|NYSE
+AEROSPACE & DEFENSE|JOBY|Joby Aviation|NYSE
+AEROSPACE & DEFENSE|RKLB|Rocket Lab|NASDAQ
+AEROSPACE & DEFENSE|ASTS|AST SpaceMobile|NASDAQ
+AEROSPACE & DEFENSE|RDW|Redwire Corporation|NYSE
+AEROSPACE & DEFENSE|PL|Planet Labs|NYSE
+SOFTWARE & CLOUD|SNPS|Synopsys|NASDAQ
+SOFTWARE & CLOUD|CDNS|Cadence Design Systems|NASDAQ
+SOFTWARE & CLOUD|PANW|Palo Alto Networks|NASDAQ
+SOFTWARE & CLOUD|CRWD|CrowdStrike|NASDAQ
+SOFTWARE & CLOUD|FTNT|Fortinet|NASDAQ
+SOFTWARE & CLOUD|ZS|Zscaler|NASDAQ
+SOFTWARE & CLOUD|NET|Cloudflare|NYSE
+SOFTWARE & CLOUD|DDOG|Datadog|NASDAQ
+SOFTWARE & CLOUD|MDB|MongoDB|NASDAQ
+SOFTWARE & CLOUD|TEAM|Atlassian|NASDAQ
+SOFTWARE & CLOUD|WDAY|Workday|NASDAQ
+SOFTWARE & CLOUD|INTU|Intuit|NASDAQ
+SOFTWARE & CLOUD|FIS|Fidelity National Information Services|NYSE
+SOFTWARE & CLOUD|FISV|Fiserv|NYSE
+SOFTWARE & CLOUD|ADSK|Autodesk|NASDAQ
+SOFTWARE & CLOUD|ANSS|ANSYS|NASDAQ
+SOFTWARE & CLOUD|ROP|Roper Technologies|NASDAQ
+SOFTWARE & CLOUD|TYL|Tyler Technologies|NYSE
+SOFTWARE & CLOUD|APP|AppLovin|NASDAQ
+SOFTWARE & CLOUD|ARM|Arm Holdings|NASDAQ
+FOOD & BEVERAGE|MELI|MercadoLibre|NASDAQ
+FOOD & BEVERAGE|FLO|Flowers Foods|NYSE
+FOOD & BEVERAGE|GIS|General Mills|NYSE
+FOOD & BEVERAGE|HSY|Hershey Company|NYSE
+FOOD & BEVERAGE|KHC|Kraft Heinz|NASDAQ
+FOOD & BEVERAGE|CAG|Conagra Brands|NYSE
+FOOD & BEVERAGE|SJM|J.M. Smucker|NYSE
+FOOD & BEVERAGE|CPB|Campbell's Company|NASDAQ
+FOOD & BEVERAGE|MKC|McCormick & Company|NYSE
+FOOD & BEVERAGE|KDP|Keurig Dr Pepper|NASDAQ
+FOOD & BEVERAGE|MNST|Monster Beverage|NASDAQ
+FOOD & BEVERAGE|CELH|Celsius Holdings|NASDAQ
+FOOD & BEVERAGE|STZ|Constellation Brands|NYSE
+FOOD & BEVERAGE|DEO|Diageo ADR|NYSE
+FOOD & BEVERAGE|BUD|Anheuser-Busch InBev ADR|NYSE
+FOOD & BEVERAGE|KOF|Coca-Cola FEMSA ADR|NYSE
+FOOD & BEVERAGE|FIZZ|National Beverage|NASDAQ
+FOOD & BEVERAGE|POST|Post Holdings|NYSE
+FOOD & BEVERAGE|USFD|US Foods Holding|NYSE
+FOOD & BEVERAGE|PFGC|Performance Food Group|NYSE
+TRAVEL & TRANSPORT|BKNG|Booking Holdings|NASDAQ
+TRAVEL & TRANSPORT|ABNB|Airbnb|NASDAQ
+TRAVEL & TRANSPORT|EXPE|Expedia Group|NASDAQ
+TRAVEL & TRANSPORT|MAR|Marriott International|NASDAQ
+TRAVEL & TRANSPORT|HLT|Hilton Worldwide|NYSE
+TRAVEL & TRANSPORT|CCL|Carnival Corporation|NYSE
+TRAVEL & TRANSPORT|RCL|Royal Caribbean Group|NYSE
+TRAVEL & TRANSPORT|NCLH|Norwegian Cruise Line|NYSE
+TRAVEL & TRANSPORT|DAL|Delta Air Lines|NYSE
+TRAVEL & TRANSPORT|UAL|United Airlines Holdings|NASDAQ
+TRAVEL & TRANSPORT|AAL|American Airlines Group|NASDAQ
+TRAVEL & TRANSPORT|LUV|Southwest Airlines|NYSE
+TRAVEL & TRANSPORT|UBER|Uber Technologies|NYSE
+TRAVEL & TRANSPORT|LYFT|Lyft Inc.|NASDAQ
+TRAVEL & TRANSPORT|DASH|DoorDash|NASDAQ
+TRAVEL & TRANSPORT|CP|Canadian Pacific Kansas City|NYSE
+TRAVEL & TRANSPORT|CNI|Canadian National Railway|NYSE
+TRAVEL & TRANSPORT|ODFL|Old Dominion Freight Line|NASDAQ
+TRAVEL & TRANSPORT|JBHT|J.B. Hunt Transport Services|NASDAQ
+TRAVEL & TRANSPORT|CHRW|C.H. Robinson Worldwide|NASDAQ
+
+`;
+const EXTRA_RAW = `TECHNOLOGY|ARM|Arm Holdings plc|NASDAQ
+TECHNOLOGY|SNPS|Synopsys Inc.|NASDAQ
+TECHNOLOGY|CDNS|Cadence Design Systems|NASDAQ
+TECHNOLOGY|ANET|Arista Networks|NYSE
+TECHNOLOGY|DELL|Dell Technologies|NYSE
+TECHNOLOGY|HPQ|HP Inc.|NYSE
+TECHNOLOGY|HPE|Hewlett Packard Enterprise|NYSE
+TECHNOLOGY|SMCI|Super Micro Computer|NASDAQ
+TECHNOLOGY|APP|AppLovin Corporation|NASDAQ
+TECHNOLOGY|CRWD|CrowdStrike Holdings|NASDAQ
+TECHNOLOGY|PANW|Palo Alto Networks|NASDAQ
+TECHNOLOGY|FTNT|Fortinet Inc.|NASDAQ
+TECHNOLOGY|ZS|Zscaler Inc.|NASDAQ
+TECHNOLOGY|NET|Cloudflare Inc.|NYSE
+TECHNOLOGY|DDOG|Datadog Inc.|NASDAQ
+TECHNOLOGY|MDB|MongoDB Inc.|NASDAQ
+TECHNOLOGY|TEAM|Atlassian Corporation|NASDAQ
+TECHNOLOGY|INTU|Intuit Inc.|NASDAQ
+TECHNOLOGY|WDAY|Workday Inc.|NASDAQ
+TECHNOLOGY|ADSK|Autodesk Inc.|NASDAQ
+TECHNOLOGY|SNOW|Snowflake Inc.|NYSE
+TECHNOLOGY|PATH|UiPath Inc.|NYSE
+TECHNOLOGY|TWLO|Twilio Inc.|NYSE
+TECHNOLOGY|FSLY|Fastly Inc.|NYSE
+TECHNOLOGY|GTLB|GitLab Inc.|NASDAQ
+TECHNOLOGY|DOCU|DocuSign Inc.|NASDAQ
+TECHNOLOGY|GEN|Gen Digital Inc.|NASDAQ
+TECHNOLOGY|AKAM|Akamai Technologies|NASDAQ
+TECHNOLOGY|GLW|Corning Inc.|NYSE
+TECHNOLOGY|KEYS|Keysight Technologies|NYSE
+COMMUNICATION|RBLX|Roblox Corporation|NYSE
+COMMUNICATION|SNAP|Snap Inc.|NYSE
+COMMUNICATION|PINS|Pinterest Inc.|NYSE
+COMMUNICATION|DASH|DoorDash Inc.|NASDAQ
+COMMUNICATION|UBER|Uber Technologies|NYSE
+COMMUNICATION|ABNB|Airbnb Inc.|NASDAQ
+COMMUNICATION|BKNG|Booking Holdings|NASDAQ
+COMMUNICATION|LYFT|Lyft Inc.|NASDAQ
+COMMUNICATION|MTCH|Match Group|NASDAQ
+COMMUNICATION|IAC|IAC Inc.|NASDAQ
+COMMUNICATION|CHWY|Chewy Inc.|NYSE
+COMMUNICATION|ETSY|Etsy Inc.|NASDAQ
+COMMUNICATION|W|Wayfair Inc.|NYSE
+COMMUNICATION|ZM|Zoom Communications|NASDAQ
+COMMUNICATION|BIDU|Baidu Inc. ADR|NASDAQ
+COMMUNICATION|BABA|Alibaba Group ADR|NYSE
+COMMUNICATION|JD|JD.com ADR|NASDAQ
+COMMUNICATION|PDD|PDD Holdings ADR|NASDAQ
+COMMUNICATION|SE|Sea Limited ADR|NYSE
+COMMUNICATION|MELI|MercadoLibre Inc.|NASDAQ
+AUTOMOTIVE|PAG|Penske Automotive Group|NYSE
+AUTOMOTIVE|AN|AutoNation Inc.|NYSE
+AUTOMOTIVE|CVNA|Carvana Co.|NYSE
+AUTOMOTIVE|CPRT|Copart Inc.|NASDAQ
+AUTOMOTIVE|GPC|Genuine Parts Company|NYSE
+AUTOMOTIVE|ORLY|O'Reilly Automotive|NASDAQ
+AUTOMOTIVE|AZO|AutoZone Inc.|NYSE
+AUTOMOTIVE|DAN|Dana Incorporated|NYSE
+AUTOMOTIVE|VC|Visteon Corporation|NASDAQ
+AUTOMOTIVE|MOD|Modine Manufacturing|NYSE
+LUXURY & FASHION|MC|LVMH Moët Hennessy Louis Vuitton|EURONEXT
+LUXURY & FASHION|OR|L'Oréal S.A.|EURONEXT
+LUXURY & FASHION|RMS|Hermès International|EURONEXT
+LUXURY & FASHION|KER|Kering S.A.|EURONEXT
+LUXURY & FASHION|CDI|Christian Dior SE|EURONEXT
+LUXURY & FASHION|CFR|Richemont|SIX
+LUXURY & FASHION|BRBY|Burberry Group|LSE
+LUXURY & FASHION|ITX|Industria de Diseño Textil (Inditex)|BME
+LUXURY & FASHION|ADS|adidas AG|XETRA
+LUXURY & FASHION|PUM|PUMA SE|XETRA
+LUXURY & FASHION|ZAL|Zalando SE|XETRA
+LUXURY & FASHION|HUGO|Hugo Boss AG|XETRA
+LUXURY & FASHION|G24|Groupe SEB|EURONEXT
+LUXURY & FASHION|SMCP|SMCP S.A.|EURONEXT
+FINANCE|HSBC|HSBC Holdings|NYSE
+FINANCE|UBS|UBS Group AG|NYSE
+FINANCE|DB|Deutsche Bank AG|NYSE
+FINANCE|SAN|Banco Santander ADR|NYSE
+FINANCE|BNS|Bank of Nova Scotia|NYSE
+FINANCE|TD|Toronto-Dominion Bank|NYSE
+FINANCE|RY|Royal Bank of Canada|NYSE
+FINANCE|PGR|Progressive Corporation|NYSE
+FINANCE|ALL|Allstate Corporation|NYSE
+FINANCE|TRV|Travelers Companies|NYSE
+FINANCE|CBOE|Cboe Global Markets|CBOE
+FINANCE|FIS|Fidelity National Information Services|NYSE
+FINANCE|FISV|Fiserv Inc.|NYSE
+FINANCE|GPN|Global Payments|NYSE
+FINANCE|ADP|Automatic Data Processing|NASDAQ
+FINANCE|BRO|Brown & Brown|NYSE
+HEALTHCARE|ISRG|Intuitive Surgical|NASDAQ
+HEALTHCARE|DHR|Danaher Corporation|NYSE
+HEALTHCARE|TMO|Thermo Fisher Scientific|NYSE
+HEALTHCARE|BSX|Boston Scientific|NYSE
+HEALTHCARE|EW|Edwards Lifesciences|NYSE
+HEALTHCARE|DXCM|DexCom Inc.|NASDAQ
+HEALTHCARE|IDXX|IDEXX Laboratories|NASDAQ
+HEALTHCARE|MCK|McKesson Corporation|NYSE
+HEALTHCARE|COR|Cencora Inc.|NYSE
+HEALTHCARE|ZBH|Zimmer Biomet|NYSE
+HEALTHCARE|RMD|ResMed Inc.|NYSE
+HEALTHCARE|BIIB|Biogen Inc.|NASDAQ
+HEALTHCARE|MRNA|Moderna Inc.|NASDAQ
+HEALTHCARE|BNTX|BioNTech SE ADR|NASDAQ
+HEALTHCARE|ALNY|Alnylam Pharmaceuticals|NASDAQ
+ENERGY|NEE|NextEra Energy|NYSE
+ENERGY|DUK|Duke Energy|NYSE
+ENERGY|SO|Southern Company|NYSE
+ENERGY|CEG|Constellation Energy|NASDAQ
+ENERGY|CCJ|Cameco Corporation|NYSE
+ENERGY|URA|Global X Uranium ETF|NYSE
+ENERGY|FANG|Diamondback Energy|NASDAQ
+ENERGY|CNQ|Canadian Natural Resources|NYSE
+ENERGY|SU|Suncor Energy|NYSE
+ENERGY|TRP|TC Energy|NYSE
+INDUSTRIALS|RTX|RTX Corporation|NYSE
+INDUSTRIALS|LMT|Lockheed Martin|NYSE
+INDUSTRIALS|NOC|Northrop Grumman|NYSE
+INDUSTRIALS|GD|General Dynamics|NYSE
+INDUSTRIALS|BA|Boeing Company|NYSE
+INDUSTRIALS|TDG|TransDigm Group|NYSE
+INDUSTRIALS|PWR|Quanta Services|NYSE
+INDUSTRIALS|CARR|Carrier Global|NYSE
+INDUSTRIALS|OTIS|Otis Worldwide|NYSE
+INDUSTRIALS|JCI|Johnson Controls|NYSE
+INDUSTRIALS|AAL|American Airlines|NASDAQ
+INDUSTRIALS|DAL|Delta Air Lines|NYSE
+INDUSTRIALS|UAL|United Airlines Holdings|NASDAQ
+INDUSTRIALS|LUV|Southwest Airlines|NYSE
+INDUSTRIALS|DHL|DHL Group|XETRA
+CONSUMER|NVO|Novo Nordisk ADR|NYSE
+CONSUMER|UL|Unilever PLC ADR|NYSE
+CONSUMER|NESN|Nestlé S.A.|SIX
+CONSUMER|RACE|Ferrari N.V.|NYSE
+CONSUMER|CL|Colgate-Palmolive|NYSE
+CONSUMER|KHC|Kraft Heinz Company|NASDAQ
+CONSUMER|GIS|General Mills|NYSE
+CONSUMER|K|Kellanova|NYSE
+CONSUMER|HSY|Hershey Company|NYSE
+CONSUMER|MNST|Monster Beverage|NASDAQ
+CONSUMER|CELH|Celsius Holdings|NASDAQ
+CONSUMER|STZ|Constellation Brands|NYSE
+CONSUMER|BUD|Anheuser-Busch InBev ADR|NYSE
+CONSUMER|PM|Philip Morris International|NYSE
+CONSUMER|MO|Altria Group|NYSE
+REAL ESTATE|CBRE|CBRE Group|NYSE
+REAL ESTATE|JLL|Jones Lang LaSalle|NYSE
+REAL ESTATE|VICI|VICI Properties|NYSE
+REAL ESTATE|IRM|Iron Mountain|NYSE
+REAL ESTATE|MAA|Mid-America Apartment Communities|NYSE
+REAL ESTATE|INVH|Invitation Homes|NYSE
+REAL ESTATE|ARE|Alexandria Real Estate Equities|NYSE
+REAL ESTATE|CUBE|CubeSmart|NYSE
+REAL ESTATE|EXR|Extra Space Storage|NYSE
+REAL ESTATE|WY|Weyerhaeuser|NYSE
+INDUSTRIALS|AIR|Airbus SE|EURONEXT
+ENERGY|TTE|TotalEnergies SE|EURONEXT
+FINANCE|BNP|BNP Paribas|EURONEXT
+HEALTHCARE|SAN|Sanofi|EURONEXT
+INDUSTRIALS|SU|Schneider Electric|EURONEXT
+INDUSTRIALS|AI|Air Liquide|EURONEXT
+FINANCE|CS|AXA S.A.|EURONEXT
+INDUSTRIALS|DG|Vinci S.A.|EURONEXT
+CONSUMER|RI|Pernod Ricard|EURONEXT
+TECHNOLOGY|CAP|Capgemini SE|EURONEXT
+FINANCE|ACA|Crédit Agricole S.A.|EURONEXT
+INDUSTRIALS|EN|Bouygues S.A.|EURONEXT
+ENERGY|ENGI|Engie S.A.|EURONEXT
+COMMUNICATION|ORA|Orange S.A.|EURONEXT
+INDUSTRIALS|VIE|Veolia Environnement|EURONEXT
+LUXURY & FASHION|KER|Kering S.A.|EURONEXT
+TECHNOLOGY|DSY|Dassault Systèmes|EURONEXT
+TECHNOLOGY|STMPA|STMicroelectronics|EURONEXT
+COMMUNICATION|PUB|Publicis Groupe|EURONEXT
+FINANCE|GLE|Société Générale|EURONEXT
+HEALTHCARE|AZN|AstraZeneca PLC|LSE
+ENERGY|SHEL|Shell plc|LSE
+ENERGY|BP|BP p.l.c.|LSE
+HEALTHCARE|GSK|GSK plc|LSE
+INDUSTRIALS|RIO|Rio Tinto plc|LSE
+INDUSTRIALS|BHP|BHP Group Limited|LSE
+FINANCE|BARC|Barclays PLC|LSE
+FINANCE|LLOY|Lloyds Banking Group|LSE
+TECHNOLOGY|SAP|SAP SE|XETRA
+INDUSTRIALS|SIE|Siemens AG|XETRA
+FINANCE|ALV|Allianz SE|XETRA
+COMMUNICATION|DTE|Deutsche Telekom|XETRA
+AUTOMOTIVE|BMW|Bayerische Motoren Werke|XETRA
+AUTOMOTIVE|MBG|Mercedes-Benz Group|XETRA
+AUTOMOTIVE|VOW3|Volkswagen AG|XETRA
+INDUSTRIALS|BAS|BASF SE|XETRA
+TECHNOLOGY|IFX|Infineon Technologies|XETRA
+ENERGY|RWE|RWE AG|XETRA
+AUTOMOTIVE|7203|Toyota Motor Corporation|TSE
+TECHNOLOGY|6758|Sony Group Corporation|TSE
+COMMUNICATION|7974|Nintendo Co., Ltd.|TSE
+FINANCE|9984|SoftBank Group|TSE
+TECHNOLOGY|8035|Tokyo Electron|TSE
+COMMUNICATION|0700|Tencent Holdings|HKEX
+CONSUMER|9988|Alibaba Group|HKEX
+FINANCE|0005|HSBC Holdings|HKEX
+CONSUMER|3690|Meituan|HKEX
+COMMUNICATION|0941|China Mobile|HKEX
+TECHNOLOGY|SHOP|Shopify Inc.|NASDAQ
+TECHNOLOGY|SHOP.TO|Shopify Inc.|OTHER
+TECHNOLOGY|ASML|ASML Holding|NASDAQ
+TECHNOLOGY|TSM|Taiwan Semiconductor ADR|NYSE
+TECHNOLOGY|UMC|United Microelectronics ADR|NYSE
+TECHNOLOGY|SMH|VanEck Semiconductor ETF|NASDAQ
+TECHNOLOGY|MRVL|Marvell Technology|NASDAQ
+TECHNOLOGY|MCHP|Microchip Technology|NASDAQ
+TECHNOLOGY|ON|ON Semiconductor|NASDAQ
+TECHNOLOGY|NXPI|NXP Semiconductors|NASDAQ
+TECHNOLOGY|MPWR|Monolithic Power Systems|NASDAQ
+TECHNOLOGY|ARM|Arm Holdings|NASDAQ
+TECHNOLOGY|COHR|Coherent Corp.|NYSE
+TECHNOLOGY|ONTO|Onto Innovation|NYSE
+TECHNOLOGY|TER|Teradyne|NASDAQ
+TECHNOLOGY|FICO|Fair Isaac Corporation|NYSE
+TECHNOLOGY|TYL|Tyler Technologies|NYSE
+TECHNOLOGY|MANH|Manhattan Associates|NASDAQ
+TECHNOLOGY|PAYC|Paycom Software|NYSE
+TECHNOLOGY|GDDY|GoDaddy|NYSE
+TECHNOLOGY|APPF|AppFolio|NASDAQ
+TECHNOLOGY|DUOL|Duolingo|NASDAQ
+TECHNOLOGY|BILL|BILL Holdings|NYSE
+TECHNOLOGY|ESTC|Elastic N.V.|NYSE
+TECHNOLOGY|CFLT|Confluent|NASDAQ
+TECHNOLOGY|ZI|ZoomInfo Technologies|NASDAQ
+TECHNOLOGY|PCOR|Procore Technologies|NYSE
+TECHNOLOGY|FRSH|Freshworks|NASDAQ
+TECHNOLOGY|ASAN|Asana|NYSE
+TECHNOLOGY|BRZE|Braze|NASDAQ
+TECHNOLOGY|ALAB|Astera Labs|NASDAQ
+TECHNOLOGY|CRDO|Credo Technology|NASDAQ
+TECHNOLOGY|IONQ|IonQ|NYSE
+TECHNOLOGY|RGTI|Rigetti Computing|NASDAQ
+TECHNOLOGY|QBTS|D-Wave Quantum|NYSE
+TECHNOLOGY|QUBT|Quantum Computing Inc.|NASDAQ
+TECHNOLOGY|SMR|NuScale Power|NYSE
+TECHNOLOGY|OKLO|Oklo Inc.|NYSE
+TECHNOLOGY|ASTS|AST SpaceMobile|NASDAQ
+TECHNOLOGY|RKLB|Rocket Lab|NASDAQ
+TECHNOLOGY|LUNR|Intuitive Machines|NASDAQ
+TECHNOLOGY|PL|Planet Labs|NYSE
+COMMUNICATION|TME|Tencent Music Entertainment ADR|NYSE
+COMMUNICATION|BILI|Bilibili ADR|NASDAQ
+COMMUNICATION|YMM|Full Truck Alliance ADR|NYSE
+COMMUNICATION|GRAB|Grab Holdings|NASDAQ
+COMMUNICATION|CPNG|Coupang|NYSE
+COMMUNICATION|VIPS|Vipshop ADR|NYSE
+COMMUNICATION|NTES|NetEase ADR|NASDAQ
+COMMUNICATION|TCOM|Trip.com Group ADR|NASDAQ
+COMMUNICATION|RDDT|Reddit Inc.|NYSE
+COMMUNICATION|FVRR|Fiverr International|NYSE
+COMMUNICATION|UPWK|Upwork|NASDAQ
+AUTOMOTIVE|BMWYY|BMW ADR|OTC
+AUTOMOTIVE|MBGYY|Mercedes-Benz ADR|OTC
+AUTOMOTIVE|VWAGY|Volkswagen ADR|OTC
+AUTOMOTIVE|POAHY|Porsche Automobil Holding ADR|OTC
+AUTOMOTIVE|HYMTF|Hyundai Motor|OTC
+AUTOMOTIVE|NSANY|Nissan Motor ADR|OTC
+AUTOMOTIVE|VOLVY|Volvo ADR|OTC
+AUTOMOTIVE|PSNY|Polestar Automotive|NASDAQ
+AUTOMOTIVE|PTRAQ|Proterra|OTC
+AUTOMOTIVE|ALSN|Allison Transmission|NYSE
+LUXURY & FASHION|CCHGY|Coca-Cola HBC|OTC
+LUXURY & FASHION|CPH|Capri Holdings|NYSE
+LUXURY & FASHION|GIII|G-III Apparel Group|NASDAQ
+LUXURY & FASHION|SKX|Skechers|NYSE
+LUXURY & FASHION|BIRK|Birkenstock|NYSE
+LUXURY & FASHION|FIVE|Five Below|NASDAQ
+LUXURY & FASHION|SMWB|Similarweb|NYSE
+LUXURY & FASHION|AMZN|Amazon|NASDAQ
+FINANCE|ALLY|Ally Financial|NYSE
+FINANCE|USB|U.S. Bancorp|NYSE
+FINANCE|PNC|PNC Financial Services|NYSE
+FINANCE|TFC|Truist Financial|NYSE
+FINANCE|COF|Capital One Financial|NYSE
+FINANCE|DFS|Discover Financial Services|NYSE
+FINANCE|SYF|Synchrony Financial|NYSE
+FINANCE|FIS|Fidelity National Information Services|NYSE
+FINANCE|FISV|Fiserv|NYSE
+FINANCE|GPN|Global Payments|NYSE
+FINANCE|ADP|Automatic Data Processing|NASDAQ
+FINANCE|BR|Broadridge Financial Solutions|NYSE
+FINANCE|NDAQ|Nasdaq Inc.|NASDAQ
+FINANCE|CBOE|Cboe Global Markets|CBOE
+FINANCE|VIRT|Virtu Financial|NASDAQ
+FINANCE|HOOD|Robinhood Markets|NASDAQ
+FINANCE|IBKR|Interactive Brokers|NASDAQ
+FINANCE|MSTR|Strategy Inc.|NASDAQ
+FINANCE|MARA|MARA Holdings|NASDAQ
+FINANCE|RIOT|Riot Platforms|NASDAQ
+FINANCE|CLSK|CleanSpark|NASDAQ
+FINANCE|HUT|Hut 8|NASDAQ
+HEALTHCARE|MRNA|Moderna|NASDAQ
+HEALTHCARE|BNTX|BioNTech ADR|NASDAQ
+HEALTHCARE|ALNY|Alnylam Pharmaceuticals|NASDAQ
+HEALTHCARE|BIIB|Biogen|NASDAQ
+HEALTHCARE|MRVI|Maravai LifeSciences|NASDAQ
+HEALTHCARE|ILMN|Illumina|NASDAQ
+HEALTHCARE|DXCM|DexCom|NASDAQ
+HEALTHCARE|PODD|Insulet|NASDAQ
+HEALTHCARE|EW|Edwards Lifesciences|NYSE
+HEALTHCARE|RMD|ResMed|NYSE
+HEALTHCARE|WAT|Waters Corporation|NYSE
+HEALTHCARE|IQV|IQVIA Holdings|NYSE
+HEALTHCARE|CRL|Charles River Laboratories|NYSE
+HEALTHCARE|HOLX|Hologic|NASDAQ
+HEALTHCARE|GEHC|GE HealthCare|NASDAQ
+HEALTHCARE|NTRA|Natera|NASDAQ
+HEALTHCARE|TEM|Tempus AI|NASDAQ
+HEALTHCARE|HIMS|Hims & Hers Health|NYSE
+HEALTHCARE|OSCR|Oscar Health|NYSE
+HEALTHCARE|DOCS|Doximity|NYSE
+ENERGY|NEE|NextEra Energy|NYSE
+ENERGY|DUK|Duke Energy|NYSE
+ENERGY|SO|Southern Company|NYSE
+ENERGY|CEG|Constellation Energy|NASDAQ
+ENERGY|NRG|NRG Energy|NYSE
+ENERGY|CCJ|Cameco|NYSE
+ENERGY|UEC|Uranium Energy|NYSE
+ENERGY|URNM|Sprott Uranium Miners ETF|NYSE
+ENERGY|RUN|Sunrun|NASDAQ
+ENERGY|NXT|Nextracker|NASDAQ
+ENERGY|ARRY|Array Technologies|NASDAQ
+ENERGY|PLUG|Plug Power|NASDAQ
+ENERGY|FCEL|FuelCell Energy|NASDAQ
+ENERGY|CLNE|Clean Energy Fuels|NASDAQ
+ENERGY|WMB|Williams Companies|NYSE
+ENERGY|KMI|Kinder Morgan|NYSE
+ENERGY|OKE|ONEOK|NYSE
+ENERGY|TRP|TC Energy|NYSE
+ENERGY|ENB|Enbridge|NYSE
+INDUSTRIALS|RTX|RTX Corporation|NYSE
+INDUSTRIALS|LMT|Lockheed Martin|NYSE
+INDUSTRIALS|NOC|Northrop Grumman|NYSE
+INDUSTRIALS|GD|General Dynamics|NYSE
+INDUSTRIALS|BA|Boeing|NYSE
+INDUSTRIALS|TDG|TransDigm Group|NYSE
+INDUSTRIALS|HEI|HEICO|NYSE
+INDUSTRIALS|AXON|Axon Enterprise|NASDAQ
+INDUSTRIALS|TT|Trane Technologies|NYSE
+INDUSTRIALS|CARR|Carrier Global|NYSE
+INDUSTRIALS|JCI|Johnson Controls|NYSE
+INDUSTRIALS|PCAR|PACCAR|NASDAQ
+INDUSTRIALS|WAB|Westinghouse Air Brake Technologies|NYSE
+INDUSTRIALS|GFL|GFL Environmental|NYSE
+INDUSTRIALS|XYL|Xylem|NYSE
+INDUSTRIALS|AOS|A. O. Smith|NYSE
+INDUSTRIALS|LII|Lennox International|NYSE
+INDUSTRIALS|PWR|Quanta Services|NYSE
+INDUSTRIALS|FIX|Comfort Systems USA|NYSE
+INDUSTRIALS|VRT|Vertiv|NYSE
+CONSUMER|NFLX|Netflix|NASDAQ
+CONSUMER|KHC|Kraft Heinz|NASDAQ
+CONSUMER|GIS|General Mills|NYSE
+CONSUMER|K|Kellanova|NYSE
+CONSUMER|HSY|Hershey|NYSE
+CONSUMER|CLX|Clorox|NYSE
+CONSUMER|CHD|Church & Dwight|NYSE
+CONSUMER|KDP|Keurig Dr Pepper|NASDAQ
+CONSUMER|MNST|Monster Beverage|NASDAQ
+CONSUMER|CELH|Celsius Holdings|NASDAQ
+CONSUMER|CAVA|CAVA Group|NYSE
+CONSUMER|WING|Wingstop|NASDAQ
+CONSUMER|DPZ|Domino's Pizza|NASDAQ
+CONSUMER|QSR|Restaurant Brands International|NYSE
+CONSUMER|LVS|Las Vegas Sands|NYSE
+CONSUMER|MGM|MGM Resorts|NYSE
+CONSUMER|MAR|Marriott International|NASDAQ
+CONSUMER|HLT|Hilton Worldwide|NYSE
+CONSUMER|CCL|Carnival Corporation|NYSE
+CONSUMER|RCL|Royal Caribbean Group|NYSE
+CONSUMER|NCLH|Norwegian Cruise Line|NYSE
+REAL ESTATE|CBRE|CBRE Group|NYSE
+REAL ESTATE|JLL|Jones Lang LaSalle|NYSE
+REAL ESTATE|COLD|Americold Realty Trust|NYSE
+REAL ESTATE|EXR|Extra Space Storage|NYSE
+REAL ESTATE|AVB|AvalonBay Communities|NYSE
+REAL ESTATE|EQR|Equity Residential|NYSE
+REAL ESTATE|MAA|Mid-America Apartment Communities|NYSE
+REAL ESTATE|VICI|VICI Properties|NYSE
+REAL ESTATE|IRM|Iron Mountain|NYSE
+REAL ESTATE|ARE|Alexandria Real Estate Equities|NYSE
+MATERIALS|LIN|Linde plc|NASDAQ
+MATERIALS|APD|Air Products and Chemicals|NYSE
+MATERIALS|SHW|Sherwin-Williams|NYSE
+MATERIALS|ECL|Ecolab|NYSE
+MATERIALS|FCX|Freeport-McMoRan|NYSE
+MATERIALS|NEM|Newmont|NYSE
+MATERIALS|GOLD|Barrick Mining|NYSE
+MATERIALS|NUE|Nucor|NYSE
+MATERIALS|STLD|Steel Dynamics|NASDAQ
+MATERIALS|AA|Alcoa|NYSE
+MATERIALS|ALB|Albemarle|NYSE
+MATERIALS|MOS|Mosaic Company|NYSE
+MATERIALS|CF|CF Industries|NYSE
+MATERIALS|IFF|International Flavors & Fragrances|NYSE
+MATERIALS|BALL|Ball Corporation|NYSE
+MATERIALS|PKG|Packaging Corporation of America|NYSE
+MATERIALS|AVY|Avery Dennison|NYSE
+UTILITIES|NEE|NextEra Energy|NYSE
+UTILITIES|DUK|Duke Energy|NYSE
+UTILITIES|SO|Southern Company|NYSE
+UTILITIES|AEP|American Electric Power|NASDAQ
+UTILITIES|EXC|Exelon|NASDAQ
+UTILITIES|XEL|Xcel Energy|NASDAQ
+UTILITIES|ED|Consolidated Edison|NYSE
+UTILITIES|D|Dominion Energy|NYSE
+UTILITIES|PEG|Public Service Enterprise Group|NYSE
+UTILITIES|WEC|WEC Energy Group|NYSE
+UTILITIES|ES|Eversource Energy|NYSE
+UTILITIES|AWK|American Water Works|NYSE
+UTILITIES|ETR|Entergy|NYSE
+UTILITIES|CNP|CenterPoint Energy|NYSE
+UTILITIES|AES|AES Corporation|NYSE
+`;
+const companies=(RAW.trim()+'\n'+EXTRA_RAW.trim()).split('\n').map(line=>{const [sector,symbol,name,exchange]=line.split('|');return{sector,symbol,name,exchange,country:({OTC:'International / OTC',NYSE:'United States',NASDAQ:'United States',EURONEXT:'France / Europe',LSE:'United Kingdom',XETRA:'Germany',SIX:'Switzerland',BME:'Spain',TSE:'Japan',HKEX:'Hong Kong',CBOE:'United States',OTHER:'International'})[exchange]||'International'};});
+const unique=[...new Map(companies.map(x=>[x.symbol,x])).values()];
+try{JSON.parse(localStorage.getItem('nexusMarketsImportedUniverse')||'[]').forEach(c=>{if(c&&c.symbol&&!unique.some(x=>x.symbol===c.symbol)){c.imported=true;companies.push(c);unique.push(c);}});}catch(e){}
+const $=id=>document.getElementById(id);const money=n=>(Number(n)/1.08).toLocaleString('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:2});
+let watch=JSON.parse(localStorage.getItem('nexusMarketsWatch')||'[]'),compare=JSON.parse(localStorage.getItem('nexusMarketsCompare')||'[]');
+const FX={USD:1,EUR:1.08,GBP:1.27,CHF:1.13,JPY:0.0067,CAD:0.72,AUD:0.65,SGD:0.74,HKD:0.128,CNY:0.139,SEK:0.095,NOK:0.092,DKK:0.145};
+const CRYPTO_META={BTC:{name:'Bitcoin',price:95000},ETH:{name:'Ethereum',price:3200},SOL:{name:'Solana',price:180},XRP:{name:'XRP',price:2.2},ADA:{name:'Cardano',price:.75},BNB:{name:'BNB',price:650},DOGE:{name:'Dogecoin',price:.18},LTC:{name:'Litecoin',price:95},DOT:{name:'Polkadot',price:6.5},LINK:{name:'Chainlink',price:16},AVAX:{name:'Avalanche',price:22},XLM:{name:'Stellar',price:.12},TRX:{name:'TRON',price:.28},BCH:{name:'Bitcoin Cash',price:380},TON:{name:'Toncoin',price:5.2},SHIB:{name:'Shiba Inu',price:.000018}};
+const INITIAL_PORTFOLIO={wallets:{USD:476216.56,EUR:142850.47,GBP:58421.19,CHF:32618.55,JPY:6500000,CAD:42718.28,AUD:18422.67,SGD:5200.35,HKD:18400.25},coins:{BTC:.842761,ETH:12.4821,SOL:145.62,XRP:18250,ADA:22500,BNB:18.45,DOGE:15000,LTC:12.5,DOT:325,LINK:180,AVAX:250,XLM:6500,TRX:8000},positions:{},history:[]};
+let portfolio=JSON.parse(localStorage.getItem('nexusMarketsPortfolio')||'null');
+if(!portfolio){portfolio=JSON.parse(JSON.stringify(INITIAL_PORTFOLIO));}
+else if(!portfolio.wallets){const oldCash=Number(portfolio.cash)||0;const hasActivity=(portfolio.history||[]).length||Object.keys(portfolio.positions||{}).length;if(!hasActivity&&oldCash<=100000){portfolio=JSON.parse(JSON.stringify(INITIAL_PORTFOLIO));}else{portfolio.wallets={USD:oldCash};portfolio.coins={};portfolio.positions=portfolio.positions||{};portfolio.history=portfolio.history||[];}delete portfolio.cash;}
+portfolio.wallets=portfolio.wallets||{USD:0};portfolio.coins=portfolio.coins||{};portfolio.positions=portfolio.positions||{};portfolio.history=portfolio.history||[];
+if(!localStorage.getItem('nexusMarketsV4EuroSeed')){if(Math.abs(Number(portfolio.wallets.USD||0)-397202.44)<2){portfolio.wallets.USD=Number(portfolio.wallets.USD||0)+79014.12;}localStorage.setItem('nexusMarketsV4EuroSeed','1');}
+let activeCompany=unique.find(x=>x.symbol==='AAPL');let latestQuotes={};const liveCryptoPrices={};Object.keys(CRYPTO_META).forEach(k=>liveCryptoPrices[k]=CRYPTO_META[k].price);
+function save(){localStorage.setItem('nexusMarketsWatch',JSON.stringify(watch));localStorage.setItem('nexusMarketsCompare',JSON.stringify(compare));localStorage.setItem('nexusMarketsPortfolio',JSON.stringify(portfolio));}
+function go(page){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===page));document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===page));$('sidebar').classList.remove('open');if(page==='watchlist')renderWatch();if(page==='portfolio')renderPortfolio();if(page==='compare')renderCompare();}
+document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));$('menuBtn').onclick=()=>$('sidebar').classList.toggle('open');
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function getCompany(input){if(!input)return null;let s=input.trim().toUpperCase();return unique.find(x=>x.symbol===s||x.name.toUpperCase()===s||`${x.exchange}:${x.symbol}`===s)||null;}
+function openCompany(c){if(!c)return;activeCompany=c;$('researchSearch').value=c.symbol;go('research');loadResearch(c);}
+function init(){ $('universeCount').textContent=unique.length.toLocaleString('fr-FR');const sectors=[...new Set(unique.map(x=>x.sector))].sort();['sectorFilter','screenSector'].forEach(id=>{sectors.forEach(sec=>$(id).insertAdjacentHTML('beforeend',`<option>${esc(sec)}</option>`));});$('symbolOptions').innerHTML=unique.map(c=>`<option value="${esc(c.symbol)}">${esc(c.name)}</option>`).join('');$('tradeOptions').innerHTML=[...unique.map(c=>`<option value="${esc(c.symbol)}">${esc(c.name)} · ACTION</option>`),...Object.entries(CRYPTO_META).map(([k,v])=>`<option value="${k}">${v.name} · CRYPTO</option>`),...Object.keys(FX).filter(k=>k!=='USD').map(k=>`<option value="${k}">${k} · DEVISE</option>`)].join('');$('popularList').innerHTML=['AAPL','MSFT','NVDA','GOOGL','AMZN','RACE','MC','TSLA'].map(sym=>{let c=getCompany(sym);return c?`<div class="listitem"><b>${esc(c.name)}</b> <span class="symbol">${c.symbol}</span><button class="btn ghost" style="float:right;padding:4px 8px" onclick="openCompany(getCompany('${c.symbol}'))">Dossier</button></div>`:''}).join('');renderMarkets();renderScreener();renderWatch();seedDemoPositions();renderPortfolio();$('watchCount').textContent=watch.length;$('connectionStatus').textContent=localStorage.getItem('nexusTwelveKey')?'Connectée':'Mode local';$('connectionSub').textContent=localStorage.getItem('nexusTwelveKey')?'Twelve Data configuré':'Catalogue local + indicateurs disponibles';$('twelveKey').value=localStorage.getItem('nexusTwelveKey')||'';$('alphaKey').value=localStorage.getItem('nexusAlphaKey')||'';$('twelveStatus').textContent=localStorage.getItem('nexusTwelveKey')?'Clé enregistrée localement':'Non configuré';$('alphaStatus').textContent=localStorage.getItem('nexusAlphaKey')?'Clé enregistrée localement':'Non configuré';$('resultCount').textContent=unique.length.toLocaleString('fr-FR')+' ENTREPRISES';$('tradeType').dispatchEvent(new Event('change'));let now=new Date(),later=new Date(now.getTime()+30*86400000),localIso=d=>new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,19);if($('calendarFrom')&&!$('calendarFrom').value)$('calendarFrom').value=localIso(now);if($('calendarTo')&&!$('calendarTo').value)$('calendarTo').value=localIso(later);} 
+async function importFullUniverse(){let key=localStorage.getItem('nexusTwelveKey');if(!key){alert('Ajoute d’abord ta clé Twelve Data dans Sources & paramètres pour importer leur catalogue complet.');return;}let b=$('importUniverse');b.disabled=true;b.textContent='Importation…';try{let j=await api('stocks',{}),items=Array.isArray(j)?j:(j.data||j.result||j.values||[]),added=0;items.forEach(x=>{let symbol=String(x.symbol||'').trim(),name=String(x.name||x.instrument_name||symbol).trim();if(!symbol||getCompany(symbol))return;let ex=String(x.exchange||x.exchange_name||'OTHER').toUpperCase();let c={sector:x.industry||x.sector||'OTHER',symbol,name,exchange:ex,country:x.country||'International',imported:true};companies.push(c);unique.push(c);added++;});localStorage.setItem('nexusMarketsImportedUniverse',JSON.stringify(companies.filter(c=>c.imported)));$('universeCount').textContent=unique.length.toLocaleString('fr-FR');$('symbolOptions').innerHTML=unique.map(c=>`<option value="${esc(c.symbol)}">${esc(c.name)}</option>`).join('');$('tradeOptions').innerHTML=unique.map(c=>`<option value="${esc(c.symbol)}">${esc(c.name)} · ACTION</option>`).join('');renderMarkets();renderScreener();$('resultCount').textContent=unique.length.toLocaleString('fr-FR')+' ENTREPRISES';b.textContent=`${added} ajoutées · actualiser`;b.disabled=false;alert(`${added} nouveaux symboles importés. Catalogue total : ${unique.length}. La disponibilité des cours dépend du forfait et de la place.`);}catch(e){b.disabled=false;b.textContent='Réessayer l’import';alert('Import impossible : '+e.message);}}
+$('importUniverse')?.addEventListener('click',importFullUniverse);
+function row(c,extra=''){return `<tr onclick="openCompany(getCompany('${c.symbol}'))"><td class="company">${esc(c.name)}</td><td class="symbol">${c.symbol}</td><td><span class="tag">${esc(c.sector)}</span></td><td>${c.exchange}</td><td>${esc(c.country)}</td><td><button class="btn ghost" style="padding:5px 8px" onclick="event.stopPropagation();toggleWatch('${c.symbol}')">${watch.includes(c.symbol)?'★ Suivie':'☆ Suivre'}</button></td></tr>`;}
+function renderMarkets(){let q=$('marketSearch').value.toLowerCase(),s=$('sectorFilter').value,e=$('exchangeFilter').value;let list=unique.filter(c=>(!q||`${c.name} ${c.symbol}`.toLowerCase().includes(q))&&(!s||c.sector===s)&&(!e||c.exchange===e));$('marketRows').innerHTML=list.map(c=>row(c)).join('')||'<tr><td colspan="6" class="empty">Aucun résultat.</td></tr>';$('resultCount').textContent=list.length.toLocaleString('fr-FR')+' / '+unique.length.toLocaleString('fr-FR')+' ENTREPRISES';}
+['marketSearch','sectorFilter','exchangeFilter'].forEach(id=>$(id).addEventListener('input',renderMarkets));
+function renderScreener(){let q=$('screenSearch').value.toLowerCase(),s=$('screenSector').value,e=$('screenExchange').value;let list=unique.filter(c=>(!q||`${c.name} ${c.symbol}`.toLowerCase().includes(q))&&(!s||c.sector===s)&&(!e||c.exchange===e));$('screenSummary').textContent=`${list.length} entreprise(s) dans le catalogue`;$('screenRows').innerHTML=list.map(c=>{let m=demoMetrics(c);return `<tr onclick="openCompany(getCompany('${c.symbol}'))"><td class="company">${esc(c.name)}</td><td class="symbol">${c.symbol}</td><td>${esc(c.sector)}</td><td>${esc(c.exchange)}</td><td>${fmtNum(m.marketCap/1e9)} Md $</td><td>${fmtNum(m.pe)}×</td><td><button class="btn ghost" style="padding:5px 8px">Dossier →</button></td></tr>`}).join('')||'<tr><td colspan="7" class="empty">Aucun résultat.</td></tr>';}
+['screenSearch','screenSector','screenExchange'].forEach(id=>$(id).addEventListener('input',renderScreener));
+function toggleWatch(s){watch=watch.includes(s)?watch.filter(x=>x!==s):[...watch,s];save();$('watchCount').textContent=watch.length;renderMarkets();renderWatch();}
+function renderWatch(){let list=watch.map(getCompany).filter(Boolean);$('watchContent').innerHTML=list.length?`<div class="tablewrap"><table><thead><tr><th>Entreprise</th><th>Ticker</th><th>Secteur</th><th></th><th></th></tr></thead><tbody>${list.map(c=>`<tr><td class="company">${esc(c.name)}</td><td class="symbol">${c.symbol}</td><td>${esc(c.sector)}</td><td><button class="btn ghost" onclick="openCompany(getCompany('${c.symbol}'))">Dossier</button></td><td><button class="btn danger" onclick="toggleWatch('${c.symbol}')">Retirer</button></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">Ta watchlist est vide. Ajoute des entreprises depuis le catalogue.</div>';}
+function chartURL(c){return 'https://s.tradingview.com/widgetembed/?frameElementId=tv-'+encodeURIComponent(c.symbol)+'&symbol='+encodeURIComponent(c.exchange+':'+c.symbol)+'&interval=D&hidesidetoolbar=0&symboledit=1&saveimage=0&toolbarbg=0b1422&theme=dark&style=1&timezone=Europe%2FParis&withdateranges=1&hideideas=1&locale=fr';}
+$('loadChart').onclick=()=>{let c=getCompany($('chartSearch').value);if(!c){alert('Ticker introuvable dans le catalogue.');return;}$('chartTitle').textContent=c.exchange+':'+c.symbol+' · '+c.name;$('chartFrame').src=chartURL(c);};
+async function api(endpoint,params={}){let key=localStorage.getItem('nexusTwelveKey');if(!key)throw Error('Ajoute une clé Twelve Data dans Sources & paramètres.');let u=new URL('https://api.twelvedata.com/'+endpoint);Object.entries({...params,apikey:key}).forEach(([k,v])=>u.searchParams.set(k,v));let r=await fetch(u);let j=await r.json();if(!r.ok||j.status==='error'||j.code)throw Error(j.message||j.message||`Erreur API ${r.status}`);return j;}
+function fmtNum(v,cur=''){if(v===null||v===undefined||v==='')return '—';let n=Number(v);return Number.isFinite(n)?n.toLocaleString('fr-FR',{maximumFractionDigits:2})+(cur?' '+cur:''):'—';}
+function quotePrice(j){return Number(j.close||j.price||j.last||j.previous_close||NaN);}
+function hashNum(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function demoMetrics(c){let h=hashNum(c.symbol),base=1000000000+(h%2800000)*1000000;return{marketCap:base,pe:9+(h%4200)/100,eps:0.8+(h%2200)/100,dividend:(h%480)/100,growth:-4+(h%2600)/100,margin:4+(h%3200)/100,volume:120000+(h%8800000)};}
+function fmtMoney(v,cur='USD'){return Number(v).toLocaleString('fr-FR',{style:'currency',currency:cur,maximumFractionDigits:2});}
+function companyResearchLinks(c){let q=encodeURIComponent(c.name+' '+c.symbol+' investor relations');let t=encodeURIComponent(c.symbol);return `<div class="research-links"><a href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">Recherche web ↗</a><a href="https://news.google.com/search?q=${t}%20stock" target="_blank" rel="noopener">Actualités ↗</a><a href="https://finance.yahoo.com/quote/${encodeURIComponent(c.symbol)}/" target="_blank" rel="noopener">Yahoo Finance ↗</a><a href="https://www.google.com/search?q=${q}%20financial%20results" target="_blank" rel="noopener">Résultats financiers ↗</a></div>`;}
+async function loadResearch(c){
+  $('researchContent').innerHTML='<div class="panel empty">Chargement du dossier entreprise…</div>';
+  let q=null,profile=null,stats=null,history=null,errors=[];
+  if(localStorage.getItem('nexusTwelveKey')){
+    try{q=await api('quote',{symbol:c.symbol,exchange:c.exchange});latestQuotes[c.symbol]=q;}catch(e){errors.push('Cours : '+e.message);}
+    try{profile=await api('profile',{symbol:c.symbol,exchange:c.exchange});}catch(e){errors.push('Profil : '+e.message);}
+    try{stats=await api('statistics',{symbol:c.symbol,exchange:c.exchange});}catch(e){errors.push('Statistiques : '+e.message);}
+    try{history=await api('time_series',{symbol:c.symbol,exchange:c.exchange,interval:'1min',outputsize:120,format:'JSON'});}catch(e){errors.push('Historique : '+e.message);}
+  }else{errors.push('Aucune source externe connectée. Les indicateurs locaux sont des estimations et les cours ne sont pas des cotations de marché.');}
+  let dm=demoMetrics(c),series=getLocalSeries(c.symbol),last=series.at(-1),prev=series.at(-2),p=q?quotePrice(q):last.c,currency=(q&&q.currency)||'USD',chg=q?Number(q.percent_change):((last.c-prev.c)/prev.c*100),vals=stats||{},val=vals.valuations||vals,fin=vals.financials||vals,points=history?.values||[];
+  let cap=val.market_capitalization||vals.market_capitalization||dm.marketCap,pe=val.trailing_pe||vals.trailing_pe||vals.pe_ratio||dm.pe,eps=fin.earnings_per_share||vals.earnings_per_share||dm.eps,div=vals.dividend_yield||val.dividend_yield||dm.dividend,vol=q?.volume||dm.volume,growth=vals.revenue_growth_ttm||dm.growth,margin=vals.profit_margin||dm.margin;
+  let rsi=calcRSI(points.map(x=>Number(x.close)).reverse()),desc=profile?.description||`${c.name} appartient au secteur ${c.sector.toLowerCase()}. Consulte les publications et informations réglementaires depuis les sources externes.`;
+  let html=`<div class="panel">
+    <div class="detailhead"><div><div class="eyebrow">${esc(c.sector)} · ${esc(c.exchange)}</div><h2 style="font-size:23px;margin:5px 0">${esc(profile?.name||c.name)}</h2><div class="muted small">${esc(c.symbol)} · ${esc(profile?.country||c.country)} · ${esc(profile?.currency||currency)}</div></div><div style="text-align:right"><div class="pricebig">${fmtNum(p,currency)}</div><div class="${chg>=0?'positive':'negative'}">${chg>0?'+':''}${chg.toFixed(2)}%</div><div class="small muted">${esc(q?.datetime||q?.timestamp||new Date().toLocaleString('fr-FR'))}</div></div></div>
+    <div class="actions" style="margin-top:13px"><button class="btn" onclick="toggleWatch('${c.symbol}')">${watch.includes(c.symbol)?'★ Dans la watchlist':'☆ Ajouter à la watchlist'}</button><button class="btn ghost" onclick="go('charts');$('chartSearch').value='${c.symbol}';$('loadChart').click()">Ouvrir graphique ↗</button><button class="btn ghost" onclick="go('portfolio');$('tradeType').value='stock';$('tradeSymbol').value='${c.symbol}';updateTradeQuote()">Acheter / vendre ↗</button><button class="btn ghost" onclick="addCompare('${c.symbol}')">Comparer</button></div>
+    <div class="divider" style="height:1px;background:var(--line);margin:16px 0"></div><h2>Indicateurs financiers</h2><div class="metricgrid" style="margin-top:10px"><div class="metric"><label>Capitalisation</label><b>${fmtNum(cap/1e9)} Md ${currency}</b></div><div class="metric"><label>PER</label><b>${fmtNum(pe)}×</b></div><div class="metric"><label>EPS</label><b>${fmtNum(eps,currency)}</b></div><div class="metric"><label>Rendement dividende</label><b>${fmtNum(div)}%</b></div><div class="metric"><label>Croissance CA</label><b>${fmtNum(growth)}%</b></div><div class="metric"><label>Marge nette</label><b>${fmtNum(margin)}%</b></div><div class="metric"><label>RSI (14)</label><b>${Number.isFinite(rsi)?rsi.toFixed(1):'—'}</b></div><div class="metric"><label>Volume</label><b>${fmtNum(vol)}</b></div></div>
+    <div class="divider" style="height:1px;background:var(--line);margin:16px 0"></div><h2>Profil & informations</h2><p class="small muted">${esc(desc)}</p><div class="small">Place : ${esc(c.exchange)} · Secteur : ${esc(c.sector)} · Ticker : ${esc(c.symbol)}</div>${companyResearchLinks(c)}
+    <div class="divider" style="height:1px;background:var(--line);margin:16px 0"></div><div class="panelhead"><h2>Historique de cours</h2><span class="pill">${points.length?points.length+' points reçus':'Série locale'}</span></div><div class="localchart-wrap"><canvas class="localchart" id="researchLocalChart"></canvas></div>
+    <div class="small muted" style="margin-top:10px">Source des cours : ${q?'Twelve Data':'série locale générée'} · Profil : ${profile?'Twelve Data':'catalogue'} · Statistiques : ${stats?'Twelve Data':'indicateurs estimés'} · Vérifié : ${new Date().toLocaleString('fr-FR',{dateStyle:'short',timeStyle:'medium'})}</div>
+    ${errors.length?`<div class="note" style="margin-top:10px">${errors.map(esc).join('<br>')}<br>La couverture dépend du fournisseur, du marché et de l'abonnement.</div>`:'<div class="notice" style="margin-top:10px">Données externes reçues. Vérifie la date, la devise, la place et le statut du marché.</div>'}
+  </div>`;
+  $('researchContent').innerHTML=html;setTimeout(()=>{let cv=$('researchLocalChart');if(cv)chartCanvas(cv,c.symbol,{style:'line',volume:true,indicators:true,period:'1m'});},30);
+}
+$('researchLoad').onclick=()=>{let c=getCompany($('researchSearch').value);if(!c){$('researchContent').innerHTML='<div class="panel empty">Ticker non trouvé. Sélectionne une société du catalogue.</div>';return;}loadResearch(c);};
+function addCompare(s){if(compare.includes(s))return;if(compare.length>=5){alert('Maximum cinq entreprises.');return;}compare.push(s);save();renderCompare();}
+$('compareAdd').onclick=()=>{let c=getCompany($('compareSearch').value);if(!c){alert('Ticker introuvable.');return;}addCompare(c.symbol);$('compareSearch').value='';};
+function renderCompare(){let list=compare.map(getCompany).filter(Boolean);$('compareContent').innerHTML=list.length?`<div class="tablewrap"><table><thead><tr><th>Critère</th>${list.map(c=>`<th>${c.symbol}</th>`).join('')}</tr></thead><tbody><tr><td>Entreprise</td>${list.map(c=>`<td>${esc(c.name)}</td>`).join('')}</tr><tr><td>Secteur</td>${list.map(c=>`<td>${esc(c.sector)}</td>`).join('')}</tr><tr><td>Marché</td>${list.map(c=>`<td>${esc(c.exchange)}</td>`).join('')}</tr><tr><td>Capitalisation estimée</td>${list.map(c=>`<td>${fmtNum(demoMetrics(c).marketCap/1e9)} Md $</td>`).join('')}</tr><tr><td>PER estimé</td>${list.map(c=>`<td>${fmtNum(demoMetrics(c).pe)}×</td>`).join('')}</tr><tr><td>Rendement dividende estimé</td>${list.map(c=>`<td>${fmtNum(demoMetrics(c).dividend)}%</td>`).join('')}</tr><tr><td>Analyse détaillée</td>${list.map(c=>`<td><button class="btn ghost" onclick="openCompany(getCompany('${c.symbol}'))">Ouvrir</button></td>`).join('')}</tr><tr><td>Retirer</td>${list.map(c=>`<td><button class="btn danger" onclick="compare=compare.filter(x=>x!=='${c.symbol}');save();renderCompare()">×</button></td>`).join('')}</tr></tbody></table></div><div class="note">Les valeurs locales sont des estimations et ne remplacent pas des données financières vérifiées.</div>`:'<div class="empty">Ajoute jusqu’à cinq entreprises pour commencer la comparaison.</div>';}
+$('newsLoad').onclick=async()=>{let key=localStorage.getItem('nexusAlphaKey');if(!key){let c=getCompany($('newsSearch').value);let q=encodeURIComponent((c?c.name+' '+c.symbol:'marchés financiers')+' actualités');$('newsContent').innerHTML=`<div class="notice">Flux d'actualités non connecté : aucun article n'est inventé. Utilise ces recherches externes pour consulter les publications réelles.</div><div class="research-links"><a href="https://news.google.com/search?q=${q}" target="_blank" rel="noopener">Google Actualités ↗</a><a href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">Recherche web ↗</a><a href="https://finance.yahoo.com/" target="_blank" rel="noopener">Yahoo Finance ↗</a></div>`;return;}let c=getCompany($('newsSearch').value);$('newsContent').innerHTML='<div class="empty">Recherche des actualités…</div>';try{let u=new URL('https://www.alphavantage.co/query');u.searchParams.set('function','NEWS_SENTIMENT');if(c)u.searchParams.set('tickers',c.symbol);u.searchParams.set('limit','30');u.searchParams.set('apikey',key);let r=await fetch(u),j=await r.json();if(j.Note||j.Information||j['Error Message'])throw Error(j.Note||j.Information||j['Error Message']);let feed=j.feed||[];$('newsContent').innerHTML=feed.length?feed.map(n=>`<div class="listitem"><a style="color:var(--cyan);font-weight:800" href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a><p>${esc(n.source||'Source non précisée')} · ${esc(n.time_published||'')} · Sentiment : ${esc(n.overall_sentiment_label||'non fourni')}</p><p>${esc(n.summary||'')}</p></div>`).join(''):'<div class="empty">Aucun article reçu pour cette recherche.</div>';}catch(e){$('newsContent').innerHTML=`<div class="note">Impossible de charger les actualités : ${esc(e.message)}</div>`;}};
+$('calendarLoad').onclick=async()=>{let key=localStorage.getItem('nexusTwelveKey');if(!key){$('calendarContent').innerHTML='<div class="notice">Calendrier d’entreprise non connecté : aucun résultat fictif n’est présenté comme un événement réel.</div><div class="research-links"><a href="https://www.google.com/search?q=earnings+calendar+stock+market" target="_blank" rel="noopener">Calendrier des résultats ↗</a><a href="https://www.nasdaq.com/market-activity/earnings" target="_blank" rel="noopener">Calendrier Nasdaq ↗</a></div>';return;}let from=$('calendarFrom').value,to=$('calendarTo').value;if(!from||!to){$('calendarContent').textContent='Choisis une date de début et de fin.';return;}$('calendarContent').textContent='Chargement…';try{let j=await api('earnings_calendar',{start_date:from,end_date:to});let a=j.earnings||j.data||[];$('calendarContent').innerHTML=a.length?a.slice(0,150).map(x=>`<div class="listitem"><b>${esc(x.name||x.symbol||'Société')}</b> <span class="symbol">${esc(x.symbol||'')}</span><p>${esc(x.date||x.earnings_date||'Date non fournie')} · EPS estimé : ${esc(x.eps_estimate||'—')} · Devise : ${esc(x.currency||'—')}</p></div>`).join(''):'<div class="empty">Aucun événement reçu sur cette période.</div>';}catch(e){$('calendarContent').innerHTML=`<div class="note">Calendrier indisponible : ${esc(e.message)}. Cette fonction dépend du forfait.</div>`;}};
+function walletValueUSD(){return Object.entries(portfolio.wallets).reduce((sum,[cur,amount])=>sum+(Number(amount)||0)*(FX[cur]||1),0);}
+function cryptoValueUSD(){return Object.entries(portfolio.coins).reduce((sum,[sym,qty])=>sum+(Number(qty)||0)*(liveCryptoPrices[sym]||CRYPTO_META[sym]?.price||0),0);}
+function portfolioValue(){let stocks=0;Object.entries(portfolio.positions||{}).forEach(([sym,pos])=>{let price=latestQuotes[sym]?quotePrice(latestQuotes[sym]):Number(pos.lastPrice||pos.avgCost||0);stocks+=Number(pos.qty||0)*price;});return{total:walletValueUSD()+cryptoValueUSD()+stocks,fiat:walletValueUSD(),crypto:cryptoValueUSD(),stocks};}
+function renderPortfolio(){let v=portfolioValue(),pos=Object.entries(portfolio.positions||{}).filter(([s,p])=>p.qty>0);$('pValue').textContent=money(v.total);$('pCash').textContent=money(v.fiat);$('pCrypto').textContent=Object.values(portfolio.coins).filter(x=>Number(x)>0).length;$('pPositions').textContent=pos.length.toLocaleString('fr-FR');$('portfolioValue').textContent=money(v.total);$('walletsContent').innerHTML=`<div class="tablewrap"><table class="asset-table"><thead><tr><th>Devise</th><th>Solde détenu</th><th>Équivalent EUR</th></tr></thead><tbody>${Object.entries(portfolio.wallets).sort((a,b)=>(b[1]*(FX[b[0]]||1))-(a[1]*(FX[a[0]]||1))).map(([cur,amount])=>`<tr><td class="asset-symbol">${cur}</td><td class="asset-qty">${Number(amount).toLocaleString('fr-FR',{maximumFractionDigits:4})} ${cur}</td><td>${money(Number(amount)*(FX[cur]||1))}</td></tr>`).join('')}</tbody></table></div><p class="small muted">Taux FX indicatifs fixes pour la simulation, pas des taux de change en temps réel.</p>`;$('cryptoContent').innerHTML=`<div class="tablewrap"><table class="asset-table"><thead><tr><th>Actif</th><th>Quantité détenue</th><th>Prix simulé</th><th>Valeur EUR</th></tr></thead><tbody>${Object.entries(portfolio.coins).filter(([s,q])=>Number(q)>0).sort((a,b)=>(b[1]*(liveCryptoPrices[b[0]]||0))-(a[1]*(liveCryptoPrices[a[0]]||0))).map(([sym,qty])=>`<tr><td><span class="asset-symbol">${sym}</span><br><span class="small muted">${CRYPTO_META[sym]?.name||sym}</span></td><td class="asset-qty">${Number(qty).toLocaleString('fr-FR',{maximumFractionDigits:8})}</td><td>${money(liveCryptoPrices[sym]||CRYPTO_META[sym]?.price||0)}</td><td>${money(Number(qty)*(liveCryptoPrices[sym]||CRYPTO_META[sym]?.price||0))}</td></tr>`).join('')}</tbody></table></div>`;$('positionsContent').innerHTML=pos.length?`<div class="tablewrap"><table><thead><tr><th>Entreprise</th><th>Nombre d’actions détenues</th><th>Prix moyen</th><th>Dernier cours</th><th>Valeur EUR</th></tr></thead><tbody>${pos.map(([sym,p])=>{let c=getCompany(sym),px=Number(latestQuotes[sym]?quotePrice(latestQuotes[sym]):p.lastPrice||p.avgCost);return `<tr><td>${esc(c?.name||sym)} <span class="symbol">${sym}</span></td><td>${Number(p.qty).toLocaleString('fr-FR',{maximumFractionDigits:6})}</td><td>${money(p.avgCost)}</td><td>${money(px)}</td><td>${money(px*p.qty)}</td></tr>`}).join('')}</tbody></table></div>`:'<div class="empty">Aucune action détenue virtuellement. Choisis une entreprise dans le formulaire pour tester une opération.</div>';$('tradeHistory').innerHTML=portfolio.history.length?`<div class="tablewrap"><table><thead><tr><th>Date & heure</th><th>Opération</th><th>Actif</th><th>Quantité</th><th>Prix unitaire</th><th>Montant EUR</th></tr></thead><tbody>${portfolio.history.slice().reverse().map(t=>{let d=new Date(t.date),stamp=Number.isNaN(d.getTime())?esc(t.date):d.toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'});return `<tr><td>${stamp}</td><td>${esc(t.sideLabel||t.side)}</td><td class="symbol">${esc(t.symbol)}</td><td>${Number(t.qty).toLocaleString('fr-FR',{maximumFractionDigits:8})}</td><td>${money(t.price)}</td><td>${money(t.totalUSD||t.qty*t.price)}</td></tr>`}).join('')}</tbody></table></div>`:'<div class="empty">Aucune opération enregistrée pour le moment.</div>';}
+function simulatedPrice(symbol){let series=getLocalSeries(symbol);return Number(series[series.length-1].c)}
+function currentTradeType(){return $('tradeType').value;}
+function tradeInstrument(){let type=currentTradeType(),sym=$('tradeSymbol').value.trim().toUpperCase();if(type==='stock'){let c=getCompany(sym);return c?{type,symbol:c.symbol,name:c.name,price:simulatedPrice(c.symbol),currency:'USD'}:null;}if(type==='crypto'){let m=CRYPTO_META[sym];return m?{type,symbol:sym,name:m.name,price:liveCryptoPrices[sym]||m.price,currency:'USD'}:null;}if(type==='fiat'){return FX[sym]&&sym!=='USD'?{type,symbol:sym,name:sym+' contre USD',price:1/(FX[sym]),currency:'USD'}:null;}return null;}
+function updateTradeQuote(){let a=tradeInstrument();if(!a){$('tradeQuote').textContent='Actif introuvable dans cette catégorie. Choisis un ticker du catalogue, une crypto ou une devise.';$('tradeEstimate').textContent='—';return;}let qty=Number($('tradeQty').value)||0;let total=qty*a.price;$('tradeQuote').innerHTML=`<b>${esc(a.name)} (${a.symbol})</b> · Prix de référence : <b>${money(a.price)}</b> <span class="simflag">SIMULÉ</span><br><span class="small muted">Actualisé : ${new Date().toLocaleString('fr-FR',{dateStyle:'short',timeStyle:'medium'})}</span>`;$('tradeEstimate').textContent=money(total);}
+function doTrade(side){let a=tradeInstrument(),qty=Number($('tradeQty').value);if(!a||!Number.isFinite(qty)||qty<=0){$('tradeFeedback').textContent='Vérifie la catégorie, le symbole et la quantité.';return;}let totalUSD=qty*a.price,fee=totalUSD*.001; if(a.type==='stock'){let pos=portfolio.positions[a.symbol]||{qty:0,avgCost:0,lastPrice:a.price};if(side==='BUY'){if(totalUSD+fee>Number(portfolio.wallets.USD||0)){$('tradeFeedback').textContent='Solde virtuel insuffisant (équivalent EUR).';return;}let nq=pos.qty+qty;pos.avgCost=(pos.qty*pos.avgCost+totalUSD+fee)/nq;pos.qty=nq;portfolio.wallets.USD-=totalUSD+fee;}else{if(qty>pos.qty){$('tradeFeedback').textContent=`Position insuffisante : ${pos.qty} ${a.symbol} disponibles.`;return;}pos.qty-=qty;portfolio.wallets.USD+=totalUSD-fee;}pos.lastPrice=a.price;if(pos.qty<=1e-10)delete portfolio.positions[a.symbol];else portfolio.positions[a.symbol]=pos;}else if(a.type==='crypto'){let held=Number(portfolio.coins[a.symbol]||0);if(side==='BUY'){if(totalUSD+fee>Number(portfolio.wallets.USD||0)){$('tradeFeedback').textContent='Solde virtuel insuffisant (équivalent EUR).';return;}portfolio.wallets.USD-=totalUSD+fee;portfolio.coins[a.symbol]=held+qty;}else{if(qty>held){$('tradeFeedback').textContent=`Quantité insuffisante : ${held} ${a.symbol} détenus.`;return;}portfolio.coins[a.symbol]=held-qty;portfolio.wallets.USD+=totalUSD-fee;}}else{let fx=FX[a.symbol],held=Number(portfolio.wallets[a.symbol]||0);if(side==='BUY'){let usdCost=qty/fx;if(usdCost+usdCost*.001>Number(portfolio.wallets.USD||0)){$('tradeFeedback').textContent='Solde virtuel insuffisant (équivalent EUR) pour cette conversion.';return;}portfolio.wallets.USD-=usdCost+usdCost*.001;portfolio.wallets[a.symbol]=held+qty;}else{if(qty>held){$('tradeFeedback').textContent=`Solde insuffisant : ${held} ${a.symbol} détenus.`;return;}let usdReceived=qty/fx;portfolio.wallets[a.symbol]=held-qty;portfolio.wallets.USD+=usdReceived-usdReceived*.001;}totalUSD=qty/fx;}
+let label=(side==='BUY'?'ACHAT':'VENTE')+' VIRTUEL · '+(a.type==='stock'?'ACTION':a.type==='crypto'?'CRYPTO':'DEVISE');portfolio.history.push({date:new Date().toISOString(),side,sideLabel:label,symbol:a.symbol,type:a.type,qty,price:a.price,totalUSD,feeUSD:fee,source:'SIMULATION'});save();renderPortfolio();updateTradeQuote();$('tradeFeedback').textContent=`${side==='BUY'?'Achat':'Vente'} virtuel enregistré : ${qty} ${a.symbol} · montant indicatif ${money(totalUSD)} · frais simulés 0,10 %. Aucun ordre réel envoyé.`;}
+$('tradeType').addEventListener('change',()=>{let t=currentTradeType();$('tradeSymbol').value='';$('tradeSymbol').placeholder=t==='stock'?'Ex. AAPL, MC, SAP':t==='crypto'?'Ex. BTC, ETH, SOL':'Ex. EUR, GBP, JPY';$('tradeOptions').innerHTML=(t==='stock'?unique.map(c=>`<option value="${esc(c.symbol)}">${esc(c.name)}</option>`):t==='crypto'?Object.entries(CRYPTO_META).map(([k,v])=>`<option value="${k}">${v.name}</option>`):Object.keys(FX).filter(k=>k!=='USD').map(k=>`<option value="${k}">${k}</option>`)).join('');updateTradeQuote();});
+$('tradeSymbol').addEventListener('input',updateTradeQuote);$('tradeSymbol').addEventListener('change',updateTradeQuote);$('tradeQty').addEventListener('input',updateTradeQuote);$('tradeBuy').onclick=()=>doTrade('BUY');$('tradeSell').onclick=()=>doTrade('SELL');$('resetPortfolio').onclick=()=>{if(confirm('Réinitialiser le portefeuille virtuel, les devises, les crypto-actifs et tout l’historique ?')){portfolio=JSON.parse(JSON.stringify(INITIAL_PORTFOLIO));save();renderPortfolio();$('tradeFeedback').textContent='Portefeuille de démonstration réinitialisé.';}};
+$('saveTwelve').onclick=()=>{localStorage.setItem('nexusTwelveKey',$('twelveKey').value.trim());$('twelveStatus').textContent=$('twelveKey').value.trim()?'Clé enregistrée localement':'Non configuré';$('connectionStatus').textContent=$('twelveKey').value.trim()?'Configurée':'Non connectées';$('connectionSub').textContent=$('twelveKey').value.trim()?'Twelve Data configuré':'Graphiques locaux';};$('saveAlpha').onclick=()=>{localStorage.setItem('nexusAlphaKey',$('alphaKey').value.trim());$('alphaStatus').textContent=$('alphaKey').value.trim()?'Clé enregistrée localement':'Non configuré';};$('clearKeys').onclick=()=>{localStorage.removeItem('nexusTwelveKey');localStorage.removeItem('nexusAlphaKey');$('twelveKey').value='';$('alphaKey').value='';$('twelveStatus').textContent='Non configuré';$('alphaStatus').textContent='Non configuré';$('connectionStatus').textContent='Non connectées';};
+const updateMarketClock=()=>{$('marketClock').textContent=new Date().toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'}).replace(',', ' ·')};updateMarketClock();setInterval(updateMarketClock,1000);
+
+// NEXUS MARKETS — moteur graphique local autonome (aucune API/CDN requise)
+const LOCAL_TICKERS=[['AAPL','Apple',189],['NVDA','NVIDIA',142],['MSFT','Microsoft',425],['GOOGL','Alphabet',175],['AMZN','Amazon',205],['TSLA','Tesla',325],['META','Meta',610],['RACE','Ferrari',465],['MC','LVMH',520],['OR','L’Oréal',365],['SAP','SAP',255],['AMD','AMD',165]];
+const localSeries={}, localChartState={symbol:'AAPL',style:'candle',period:'1m',paused:false,indicators:{volume:true,sma:true,rsi:false}};
+function seedOf(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function randGen(seed){let x=seed||1;return()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return (x>>>0)/4294967295}}
+function getLocalSeries(sym){if(localSeries[sym])return localSeries[sym];let c=getCompany(sym),known=LOCAL_TICKERS.find(x=>x[0]===sym),base=known?known[2]:(70+(seedOf(sym)%700));let rnd=randGen(seedOf(sym));let p=base*.78,a=[];for(let i=0;i<100;i++){let drift=(rnd()-.49)*.026+Math.sin(i/13+seedOf(sym)%9)*.002;p=Math.max(2,p*(1+drift));let o=p*(1+(rnd()-.5)*.012),cl=p*(1+(rnd()-.5)*.018),hi=Math.max(o,cl)*(1+rnd()*.012),lo=Math.min(o,cl)*(1-rnd()*.012);a.push({o,h:hi,l:lo,c:cl,v:100000+Math.round(rnd()*900000)})}return localSeries[sym]=a}
+
+function seedDemoPositions(){
+  const targetCount=87;
+  const current=Object.keys(portfolio.positions||{}).filter(sym=>Number(portfolio.positions[sym]?.qty)>0);
+  if(current.length>=targetCount){localStorage.setItem('nexusMarketsV4DemoPositions','1');return;}
+  const sectors=[...new Set(unique.map(c=>c.sector))],buckets=sectors.map(sec=>unique.filter(c=>c.sector===sec)),selected=[];
+  for(let i=0;selected.length<unique.length;i++){let added=false;for(const bucket of buckets){if(bucket[i]&&!current.includes(bucket[i].symbol)&&!selected.some(c=>c.symbol===bucket[i].symbol)){selected.push(bucket[i]);added=true;}}if(!added)break;}
+  const missing=targetCount-current.length,chosen=selected.slice(0,missing),weights=chosen.map(c=>0.75+(seedOf(c.symbol)%501)/1000),total=weights.reduce((a,b)=>a+b,0),bookValueUSD=130500;
+  chosen.forEach((c,i)=>{const price=simulatedPrice(c.symbol),target=bookValueUSD*weights[i]/Math.max(total,1),qty=target/price;portfolio.positions[c.symbol]={qty,avgCost:price*(0.91+(seedOf(c.symbol+'cost')%180)/1000),lastPrice:price};});
+  if(chosen.length)portfolio.wallets.USD=Math.max(0,Number(portfolio.wallets.USD||0)-bookValueUSD);
+  save();localStorage.setItem('nexusMarketsV4DemoPositions','1');
+}
+
+function localTick(sym){let a=getLocalSeries(sym),last=a[a.length-1],rnd=randGen(seedOf(sym+Date.now().toString().slice(-5)));let drift=(Math.random()-.49)*.022;let o=last.c,c=Math.max(.5,o*(1+drift)),h=Math.max(o,c)*(1+Math.random()*.009),l=Math.min(o,c)*(1-Math.random()*.009);a.push({o,h,l,c,v:100000+Math.round(rnd()*900000)});if(a.length>140)a.shift()}
+function chartCanvas(canvas,sym,opts={}){if(!canvas)return;let rect=canvas.getBoundingClientRect(),w=Math.max(300,rect.width),h=Math.max(150,rect.height);let dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);let ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);ctx.fillStyle='#09111c';ctx.fillRect(0,0,w,h);let period=opts.period||localChartState.period,baseData=getLocalSeries(sym),count=({ '1s':100,'5s':100,'15s':100,'30s':100,'1m':100,'5m':100,'15m':100,'30m':100,'1h':100,'4h':100,'1D':96,'1W':84,'1M':72,'1Y':100,'5Y':100 })[period]||100;let source=baseData.slice(-count),periodRand=randGen(seedOf(sym+'|'+period));let data=source.map((v,i)=>{let amp=period==='1s'||period==='5s'||period==='15s'?0.0025:period==='1m'||period==='5m'||period==='15m'?0.005:period==='1h'||period==='4h'?0.009:period==='1D'?0.014:period==='1W'?0.022:period==='1M'?0.035:period==='1Y'?0.06:0.11;let factor=1+(periodRand()-.5)*amp;return{o:v.o*factor,h:v.h*factor,l:v.l*factor,c:v.c*factor,v:v.v}});let pad={l:14,r:62,t:25,b:opts.volume===false?24:62},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b- (opts.volume===false?0:35);let min=Math.min(...data.map(x=>x.l)),max=Math.max(...data.map(x=>x.h)),range=max-min||1;let y=v=>pad.t+(max-v)/range*ch,x=i=>pad.l+i*cw/Math.max(1,data.length-1);ctx.strokeStyle='#1c2a3d';ctx.lineWidth=1;for(let k=0;k<5;k++){let yy=pad.t+k*ch/4;ctx.beginPath();ctx.moveTo(pad.l,yy);ctx.lineTo(w-pad.r,yy);ctx.stroke();ctx.fillStyle='#7488a3';ctx.font='9px system-ui';ctx.fillText((max-(range*k/4)).toFixed(1),w-pad.r+7,yy+3)}
+let stepMs=({'1s':1000,'5s':5000,'15s':15000,'30s':30000,'1m':60000,'5m':300000,'15m':900000,'30m':1800000,'1h':3600000,'4h':14400000,'1D':86400000,'1W':604800000,'1M':2592000000,'1Y':31536000000,'5Y':157680000000})[period]||60000;ctx.fillStyle='#8295af';ctx.font='9px system-ui';for(let k=0;k<5;k++){let idx=Math.round(k*(data.length-1)/4),stamp=new Date(Date.now()-(data.length-1-idx)*stepMs);let fmt=stepMs<60000?{hour:'2-digit',minute:'2-digit',second:'2-digit'}:stepMs<86400000?{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'}:stepMs<31536000000?{day:'2-digit',month:'2-digit',year:'2-digit'}:{month:'short',year:'2-digit'};let label=stamp.toLocaleString('fr-FR',fmt);ctx.fillText(label,Math.max(pad.l,Math.min(w-pad.r-48,x(idx)-22)),h-7)}let style=opts.style||'candle';if(style==='line'||style==='area'){ctx.beginPath();data.forEach((v,i)=>i?ctx.lineTo(x(i),y(v.c)):ctx.moveTo(x(i),y(v.c)));if(style==='area'){ctx.lineTo(x(data.length-1),pad.t+ch);ctx.lineTo(x(0),pad.t+ch);ctx.closePath();let g=ctx.createLinearGradient(0,pad.t,0,pad.t+ch);g.addColorStop(0,'#36c8d955');g.addColorStop(1,'#36c8d900');ctx.fillStyle=g;ctx.fill();ctx.beginPath();data.forEach((v,i)=>i?ctx.lineTo(x(i),y(v.c)):ctx.moveTo(x(i),y(v.c)))}ctx.strokeStyle='#69d9e9';ctx.lineWidth=2;ctx.stroke()}else{let bw=Math.max(2,Math.min(9,cw/data.length*.62));data.forEach((v,i)=>{let xx=x(i),up=v.c>=v.o;ctx.strokeStyle=up?'#55d6a0':'#ff7185';ctx.fillStyle=up?'#55d6a0':'#ff7185';ctx.beginPath();ctx.moveTo(xx,y(v.h));ctx.lineTo(xx,y(v.l));ctx.stroke();if(style==='bars'){ctx.beginPath();ctx.moveTo(xx-bw,y(v.o));ctx.lineTo(xx,y(v.o));ctx.moveTo(xx,y(v.c));ctx.lineTo(xx+bw,y(v.c));ctx.stroke()}else{let top=y(Math.max(v.o,v.c)),bh=Math.max(1,Math.abs(y(v.o)-y(v.c)));ctx.fillRect(xx-bw/2,top,bw,bh)}})}
+if(localChartState.indicators.sma&&opts.indicators!==false&&data.length>12){ctx.beginPath();data.forEach((v,i)=>{let avg=data.slice(Math.max(0,i-11),i+1).reduce((s,z)=>s+z.c,0)/Math.min(i+1,12);i?ctx.lineTo(x(i),y(avg)):ctx.moveTo(x(i),y(avg))});ctx.strokeStyle='#f2c96d';ctx.lineWidth=1.5;ctx.stroke()}
+if(opts.volume!==false&&localChartState.indicators.volume){let vh=28,base=h-pad.b+5,maxv=Math.max(...data.map(v=>v.v));data.forEach((v,i)=>{let bh=v.v/maxv*vh;ctx.fillStyle=v.c>=v.o?'#3caa8a88':'#d95d7188';ctx.fillRect(x(i)-2,base+vh-bh,4,bh)});ctx.fillStyle='#7186a1';ctx.font='9px system-ui';ctx.fillText('VOLUME',pad.l,base+vh+13)}
+let last=data[data.length-1];ctx.strokeStyle='#65d9eb88';ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(pad.l,y(last.c));ctx.lineTo(w-pad.r,y(last.c));ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#d8f8ff';ctx.font='bold 10px system-ui';ctx.fillText(last.c.toFixed(2),w-pad.r+5,y(last.c)-6);ctx.fillStyle='#7286a0';ctx.font='9px system-ui';ctx.fillText('SIMULÉ',pad.l,13)}
+function makeTile(sym){let c=getCompany(sym),known=LOCAL_TICKERS.find(x=>x[0]===sym),name=c?.name||known?.[1]||sym;return `<div class="charttile"><div class="charttile-head"><strong>${sym} · ${esc(name)}</strong><small>LOCAL</small></div><div class="localchart-wrap small"><canvas class="localchart" data-local-symbol="${sym}"></canvas></div></div>`}
+function renderLocalChartBoard(){let symbols=['AAPL','NVDA','MSFT','GOOGL','AMZN','TSLA','META','RACE'];let dash=$('dashboardChartGrid'),all=$('allChartsGrid');if(dash)dash.innerHTML=symbols.slice(0,1).map(makeTile).join('');if(all)all.innerHTML=symbols.map(makeTile).join('');document.querySelectorAll('canvas[data-local-symbol]').forEach(cv=>chartCanvas(cv,cv.dataset.localSymbol,{style:'line',volume:false,indicators:false,period:'1M'}));let c=getCompany(localChartState.symbol);$('chartTitle')&&($('chartTitle').textContent=localChartState.symbol+' · '+(c?.name||LOCAL_TICKERS.find(x=>x[0]===localChartState.symbol)?.[1]||'Entreprise'));$('chartSubtitle')&&($('chartSubtitle').textContent='Intervalle : '+({ '1s':'1 seconde','5s':'5 secondes','15s':'15 secondes','30s':'30 secondes','1m':'1 minute','5m':'5 minutes','15m':'15 minutes','30m':'30 minutes','1h':'1 heure','4h':'4 heures','1D':'1 jour','1W':'1 semaine','1M':'1 mois','1Y':'1 an','5Y':'5 ans' }[localChartState.period]||localChartState.period)+' · actualisé '+new Date().toLocaleTimeString('fr-FR')+' · cours locaux générés');let main=$('mainLocalChart');if(main)chartCanvas(main,localChartState.symbol,{style:localChartState.style,period:localChartState.period});}
+function refreshLocalCharts(){document.querySelectorAll('canvas[data-local-symbol]').forEach(cv=>chartCanvas(cv,cv.dataset.localSymbol,{style:'line',volume:false,indicators:false,period:'1M'}));let main=$('mainLocalChart');if(main)chartCanvas(main,localChartState.symbol,{style:localChartState.style,period:localChartState.period});let research=$('researchLocalChart');if(research){let c=getCompany($('researchSearch')?.value||'AAPL');chartCanvas(research,c?.symbol||'AAPL',{style:'line',volume:true,indicators:true})}}
+$('loadChart')&&($('loadChart').onclick=()=>{let c=getCompany($('chartSearch').value);if(!c){alert('Ticker introuvable. Essaie AAPL, NVDA, MSFT, TSLA ou META.');return}localChartState.symbol=c.symbol;renderLocalChartBoard()});
+$('chartStyle')&&($('chartStyle').onchange=e=>{localChartState.style=e.target.value;refreshLocalCharts()});$('chartPeriod')&&($('chartPeriod').onchange=e=>{localChartState.period=e.target.value;renderLocalChartBoard()});
+$('chartPause')&&($('chartPause').onclick=()=>{localChartState.paused=!localChartState.paused;$('chartPause').textContent=localChartState.paused?'Reprendre animation':'Pause animation'});
+document.querySelectorAll('[data-indicator]').forEach(b=>b.onclick=()=>{let k=b.dataset.indicator;localChartState.indicators[k]=!localChartState.indicators[k];b.classList.toggle('active',localChartState.indicators[k]);refreshLocalCharts()});
+const oldGo=go;go=function(page){oldGo(page);setTimeout(refreshLocalCharts,80)};
+window.addEventListener('resize',()=>refreshLocalCharts());
+renderLocalChartBoard();init();window.addEventListener('resize',()=>{clearTimeout(window.__nexusResizeTimer);window.__nexusResizeTimer=setTimeout(refreshLocalCharts,140)});
+setInterval(()=>{if(!localChartState.paused){[...new Set(['AAPL','NVDA','MSFT','GOOGL','AMZN','TSLA','META','RACE',localChartState.symbol,...Object.keys(portfolio.positions||{})])].forEach(localTick);Object.keys(portfolio.positions||{}).forEach(sym=>{portfolio.positions[sym].lastPrice=simulatedPrice(sym)});Object.keys(liveCryptoPrices).forEach(sym=>{let p=liveCryptoPrices[sym];liveCryptoPrices[sym]=Math.max(p*.2,p*(1+(Math.random()-.5)*.0018));});if(Object.keys(portfolio.positions||{}).length){save();}renderPortfolio();refreshLocalCharts();if($('tradeSymbol')?.value)updateTradeQuote()}},1100);
+
+</script></body></html>

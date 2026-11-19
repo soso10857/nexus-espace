@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NEXUS BANQUE — Espace bancaire personnel</title>
+<style>
+:root{--navy:#12345a;--blue:#145b91;--red:#c62032;--bg:#f3f6fa;--card:#fff;--ink:#18283c;--muted:#718096;--line:#e1e7ef;--green:#16865c;--pale:#eaf3fb}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Inter,system-ui,sans-serif}button,input,select{font:inherit}.top{background:#fff;border-top:5px solid var(--red);border-bottom:1px solid var(--line);padding:0 max(22px,calc((100vw - 1250px)/2));display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:20px}.brand{font-size:21px;font-weight:900;color:var(--navy);letter-spacing:.15px}.brand span{color:var(--red)}.brand small{display:block;font-size:9px;letter-spacing:2px;color:#77869a;font-weight:700}.topright{display:flex;gap:18px;align-items:center;color:var(--muted);font-size:12px}.sim{background:#fff3e1;color:#87571c;padding:7px 10px;border-radius:6px;font-size:10px;font-weight:800}.navwrap{background:var(--navy);color:#fff}.nav{max-width:1250px;margin:auto;display:flex;gap:4px;overflow:auto;padding:0 15px}.nav button{border:0;background:none;color:#dce9f8;padding:16px 17px;white-space:nowrap;border-bottom:3px solid transparent}.nav button.active,.nav button:hover{color:#fff;border-color:#f05b66;background:#ffffff0d}.container{max-width:1250px;margin:28px auto;padding:0 20px}.welcome{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:22px}.welcome h1{font-size:29px;color:var(--navy);margin:5px 0}.welcome p{color:var(--muted);margin:0}.eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:800;color:var(--blue)}.page{display:none}.page.active{display:block;animation:fade .2s ease}@keyframes fade{from{opacity:.5;transform:translateY(4px)}to{opacity:1;transform:none}}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 4px 15px #15345a08}.balanceCard{background:linear-gradient(115deg,#12345a,#1b5a8d);color:white;border:0}.balanceCard .muted{color:#c4d9ed}.label{font-size:10px;letter-spacing:1px;color:var(--muted);font-weight:750}.balanceCard .label{color:#c8def1}.amount{font-size:30px;font-weight:850;letter-spacing:-.7px;margin:9px 0}.balanceCard .amount{font-size:36px}.balanceCard:after{content:'COMPTE PRINCIPAL';display:block;margin-top:13px;padding-top:10px;border-top:1px solid #ffffff35;color:#d6e6f4;font-size:9px;letter-spacing:1.3px;font-weight:800}.muted{color:var(--muted)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.btn{border:0;background:var(--blue);color:white;padding:10px 15px;border-radius:7px;font-weight:750;cursor:pointer}.btn.red{background:var(--red)}.btn.light{background:#eaf2fa;color:var(--navy)}.btn:disabled{opacity:.5;cursor:not-allowed}.section{margin-top:17px}.sectionHead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.sectionHead h2{font-size:16px;color:var(--navy);margin:0}.accountList{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.account{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px;border:1px solid var(--line);border-radius:9px;background:#fff}.accountIcon{width:42px;height:42px;background:var(--pale);color:var(--blue);display:grid;place-items:center;border-radius:9px;font-size:19px}.accountName{font-weight:800;color:var(--navy)}.accountAmt{font-weight:850;font-size:16px}.tableWrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px}table{width:100%;border-collapse:collapse;min-width:580px;font-size:12px}th,td{text-align:left;padding:14px 13px;border-bottom:1px solid var(--line)}th{font-size:10px;color:var(--muted);letter-spacing:.8px;background:#f9fbfd}td:last-child,th:last-child{text-align:right}.credit{color:var(--green);font-weight:800}.debit{color:#b43c4b;font-weight:800}.two{display:grid;grid-template-columns:1.2fr 1fr;gap:15px}.field{display:grid;gap:6px;margin:11px 0}.field label{font-size:10px;font-weight:800;color:var(--muted);letter-spacing:.7px}.field input,.field select{border:1px solid #d6e0eb;border-radius:7px;padding:11px;background:#fff;color:var(--ink);width:100%}.chart{height:230px}.chart canvas{width:100%;height:100%}.barline{height:8px;background:#edf1f5;border-radius:20px;overflow:hidden;margin-top:10px}.barline span{display:block;height:100%;background:var(--blue)}.profile{display:flex;align-items:center;gap:14px}.avatar{width:54px;height:54px;background:var(--navy);color:white;display:grid;place-items:center;border-radius:50%;font-weight:900;font-size:20px}.notice{background:#fff6e8;border:1px solid #f0d9b2;color:#795a2c;padding:13px;border-radius:8px;font-size:11px;line-height:1.5}.footer{text-align:center;color:#8996a8;font-size:10px;padding:35px 15px}.toast{position:fixed;bottom:20px;right:20px;background:var(--navy);color:white;padding:12px 16px;border-radius:8px;display:none;z-index:5}.toast.show{display:block}.modal{position:fixed;inset:0;background:#0a1e35a8;display:none;place-items:center;padding:16px;z-index:8}.modal.open{display:grid}.modalbox{width:min(500px,100%);background:white;border-radius:13px;padding:22px;max-height:90vh;overflow:auto}.modalbox h2{color:var(--navy);margin:0 0 12px}.small{font-size:10px}
+@media(max-width:800px){#stockCharts{grid-template-columns:1fr!important}.grid{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.top{padding:12px 18px}.container{margin:18px auto}.accountList{grid-template-columns:1fr}}@media(max-width:520px){.grid{grid-template-columns:1fr}.welcome{align-items:flex-start;flex-direction:column}.topright .date{display:none}.welcome h1{font-size:25px}.nav button{padding:13px 12px;font-size:11px}}
+
+.nexusLink{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--navy);font-weight:800;border:1px solid #cbd8e7;background:#f7faff;padding:10px 14px;border-radius:7px;letter-spacing:.3px}.nexusLink span{color:var(--red);font-size:16px}.top{box-shadow:0 2px 10px #102b4a08}.card{border-radius:9px}.sectionHead{padding-bottom:9px;border-bottom:1px solid #edf1f5}.eyebrow{color:#b21f31}.btn{border-radius:5px}.btn.red{background:var(--red)}.brand{letter-spacing:.7px}.brand:before{content:'M';display:inline-grid;place-items:center;background:var(--red);color:#fff;width:30px;height:30px;border-radius:50%;margin-right:9px;font-size:14px;font-weight:900}.navwrap{background:#fff;border-bottom:3px solid #e8edf3;box-shadow:0 4px 16px #102b4a08}.nav button{color:#40556e}.nav button.active{border-bottom:3px solid var(--red);color:var(--navy);background:#fff7f7}.nav button:hover{color:var(--navy);background:#f6f8fb}.nav button{font-weight:650;letter-spacing:.1px}.nav button.active{border-bottom:3px solid var(--red);color:var(--navy)}.card{box-shadow:0 3px 16px #18365308;border:1px solid #e4eaf1}.welcome h1{letter-spacing:-.7px}.amount{font-variant-numeric:tabular-nums;letter-spacing:-.5px}.assetSummary{display:grid;gap:12px}.assetLine{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.assetLine:last-child{border-bottom:0}.assetTrack{height:6px;background:#edf2f7;border-radius:10px;overflow:hidden;margin-top:7px}.assetTrack span{display:block;height:100%;background:linear-gradient(90deg,#0b5da8,#6ba4d5);border-radius:10px}.portfolioPulse{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.pulseBox{background:#f7f9fc;border:1px solid #e6ecf3;border-radius:9px;padding:14px}.pulseBox b{display:block;color:var(--navy);font-size:19px;margin-top:6px}.pulseBox span{font-size:10px;color:var(--muted);letter-spacing:.5px}.merchantBadge{display:inline-block;background:#f0f4f8;color:#52657b;border-radius:4px;padding:3px 6px;font-size:10px}@media(max-width:650px){.portfolioPulse{grid-template-columns:1fr}.topright{gap:8px}.nexusLink{padding:8px}}
+
+@media(max-width:520px){.top{flex-wrap:wrap;gap:10px;padding:12px}.brand{font-size:18px}.topright{width:100%;justify-content:space-between;flex-wrap:wrap}.nav{padding:0 8px;scrollbar-width:thin}.nav button{min-height:44px}.container{padding:0 11px;margin:14px auto}.card{padding:15px}.balanceCard .amount{font-size:31px}.sectionHead{align-items:flex-start;flex-wrap:wrap}.tableWrap{max-width:100%;-webkit-overflow-scrolling:touch}.tableWrap table{min-width:580px}.field input,.field select{min-height:42px}.actions .btn{flex:1 1 auto}.portfolioPulse{grid-template-columns:1fr}.nexusLink{font-size:11px}.welcome h1{font-size:23px}}
+@media(hover:none){button,.nav button,.btn{min-height:42px}}
+
+/* Refonte visuelle : banque mutualiste française, identité NEXUS indépendante */
+:root{
+  --navy:#073b70;
+  --blue:#07569b;
+  --red:#d71935;
+  --bg:#f2f5f8;
+  --card:#ffffff;
+  --ink:#1b2d40;
+  --muted:#66788b;
+  --line:#dce4ec;
+  --green:#16845b;
+  --pale:#eaf2f9;
+}
+body{background:#f1f4f7;color:var(--ink);font-family:Arial,Inter,system-ui,sans-serif}
+.top{
+  min-height:88px;padding:12px max(22px,calc((100vw - 1250px)/2));
+  border-top:5px solid var(--red);border-bottom:1px solid #d9e1e9;
+  box-shadow:0 2px 7px #0b31500b;background:#fff
+}
+.brand{
+  display:flex;align-items:center;gap:10px;position:relative;
+  color:#073b70;font-size:21px;font-weight:850;letter-spacing:.1px
+}
+.brand:before{
+  content:"";display:inline-block;flex:0 0 42px;width:42px;height:42px;
+  border-radius:8px;background:#073b70;
+  box-shadow:inset 0 -4px 0 #d71935;
+}
+.brand:after{
+  content:"";position:absolute;left:10px;top:13px;width:22px;height:16px;
+  background:linear-gradient(to bottom,#fff 0 3px,transparent 3px 7px,#fff 7px 10px,transparent 10px 14px,#fff 14px 16px);
+  border-radius:1px
+}
+.brand span{display:none}
+.brand small{
+  display:block;position:absolute;left:52px;top:27px;
+  color:#687b8e;font-size:9px;letter-spacing:1.55px;font-weight:750
+}
+.topright{gap:15px;color:#52667a;font-size:12px}
+.nexusLink{border-color:#cbd8e5;background:#f7f9fc;color:#0a477e}
+.nexusLink span{color:var(--red)}
+.navwrap{
+  background:#073b70;color:#fff;border:0;border-bottom:4px solid #d71935;
+  box-shadow:0 3px 12px #0a2d4d18
+}
+.nav{max-width:1250px}
+.nav button{color:#dbe8f5;padding:16px 18px;font-weight:700;border-bottom:3px solid transparent}
+.nav button.active,.nav button:hover{
+  color:#fff;background:#ffffff12;border-bottom-color:#ed4056
+}
+.container{margin-top:26px}
+.eyebrow{color:#07569b}
+.welcome h1{color:#073b70;font-size:28px}
+.card{
+  border:1px solid #dce4ec;border-radius:10px;
+  box-shadow:0 2px 8px #12385a0b;padding:20px
+}
+.balanceCard{
+  background:linear-gradient(125deg,#073b70 0%,#07569b 68%,#0b659f 100%);
+  box-shadow:0 8px 20px #073b7022
+}
+.balanceCard .amount{font-size:38px;letter-spacing:-1px}
+.balanceCard:after{letter-spacing:1.5px}
+.sectionHead h2{color:#073b70}
+.account{border-radius:8px;border-color:#dce4ec}
+.accountIcon{background:#eaf2f9;color:#07569b;border-radius:8px}
+.accountName{color:#073b70}
+.tableWrap{border-color:#dce4ec;box-shadow:0 2px 7px #12385a08}
+th{background:#edf2f7;color:#52677c}
+td{border-bottom-color:#e7edf3}
+.btn{background:#07569b;border-radius:6px}
+.btn.red{background:#d71935}
+.btn.light{background:#eaf2f9;color:#073b70}
+.field input,.field select{border-color:#ccd8e4;border-radius:6px}
+.field input:focus,.field select:focus{outline:2px solid #8eb8df;outline-offset:1px}
+.avatar{background:#073b70}
+.notice{border-radius:7px}
+.footer{border-top:1px solid #e0e7ee;margin-top:28px}
+@media(max-width:650px){
+  .top{padding:12px 14px;min-height:78px}
+  .brand{font-size:18px}
+  .brand:before{flex-basis:38px;width:38px;height:38px}
+  .brand:after{left:9px;top:12px}
+  .brand small{left:48px;top:25px;font-size:8px}
+  .topright{font-size:11px}
+  .nav{padding:0 7px}
+  .nav button{padding:14px 13px}
+  .container{margin-top:17px}
+}
+
+</style></head><body>
+<header class="top"><div class="brand"><span aria-hidden="true">N</span> NEXUS BANQUE <small>VOTRE ESPACE BANCAIRE</small></div><div class="topright"><a class="nexusLink" href="./NEXUS.html" title="Ouvrir NEXUS">NEXUS <span>↗</span></a><span class="date" id="date"></span><b>SOSO</b></div></header>
+<div class="navwrap"><nav class="nav"><button class="active" data-page="home">Accueil</button><button data-page="accounts">Comptes</button><button data-page="operations">Opérations</button><button data-page="spending">Dépenses</button><button data-page="investments">Investissements</button><button data-page="savings">Épargne</button><button data-page="profile">Profil</button></nav></div>
+<main class="container">
+<section class="page active" id="home"><div class="welcome"><div><div class="eyebrow">BONJOUR SOSO</div><h1>Bienvenue dans votre espace</h1><p>Retrouvez en un coup d'œil la situation de vos comptes.</p></div><span class="muted small">Dernière actualisation : <b id="updated">—</b></span></div>
+<div class="grid"><div class="card balanceCard"><div class="label">SOLDE DU COMPTE COURANT</div><div class="amount" id="accountBalance">5 547,00 €</div><div class="muted">Compte principal · disponible</div><div class="actions"><button class="btn red" data-goto="operations">Effectuer un virement</button><button class="btn light" data-goto="accounts">Mes comptes</button></div></div><div class="card"><div class="label">COFFRES ASSOCIÉS</div><div class="amount" id="savingsTotal">—</div><div class="muted" id="vaultCountBank">Réserves liées à NEXUS</div></div><div class="card"><div class="label">DÉPENSES ENREGISTRÉES</div><div class="amount" id="expensesTotal">0,00 €</div><div class="muted">Depuis la création de l'espace</div></div></div>
+<div class="section two"><div class="card"><div class="sectionHead"><h2>Mes comptes et réserves</h2><button class="btn light" data-goto="accounts">Tout voir</button></div><div class="accountList" id="homeAccounts"></div></div><div class="card"><div class="sectionHead"><h2>Répartition des avoirs</h2><span class="muted small">Par coffre</span></div><div id="bankAssetSummary" class="assetSummary"></div></div></div>
+<div class="section card"><div class="sectionHead"><h2>Dernières opérations</h2><button class="btn light" data-goto="operations">Historique</button></div><div id="homeOps"></div></div></section>
+<section class="page" id="accounts"><div class="welcome"><div><div class="eyebrow">VUE D'ENSEMBLE</div><h1>Comptes et réserves</h1><p>Les soldes sont partagés avec l'application NEXUS.</p></div></div><div class="grid" id="accountCards"></div><div class="section card"><div class="sectionHead"><h2>Détail des comptes</h2><span class="muted small" id="accountCount"></span></div><div class="tableWrap" id="accountTable"></div></div></section>
+<section class="page" id="operations"><div class="welcome"><div><div class="eyebrow">VIREMENTS INTERNES</div><h1>Effectuer une opération</h1><p>Déplacez une somme entre deux réserves de votre espace.</p></div></div><div class="two"><div class="card"><h2 style="color:var(--navy);font-size:16px">Nouveau virement</h2><div class="field"><label>COMPTE À DÉBITER</label><select id="from"></select></div><div class="field"><label>COMPTE À CRÉDITER</label><select id="to"></select></div><div class="field"><label>MONTANT EN EUROS</label><input id="amount" type="number" min=".01" step=".01" placeholder="0,00"></div><div class="field"><label>LIBELLÉ (FACULTATIF)</label><input id="label" maxlength="60" placeholder="Ex. Répartition épargne"></div><button class="btn red" id="transfer">Valider le virement</button><p class="muted small">Simulation locale : aucun compte bancaire réel n’est débité.</p></div><div class="card"><h2 style="color:var(--navy);font-size:16px">Informations</h2><p class="muted">Le transfert est instantané dans les deux interfaces si elles utilisent le même navigateur et la même origine.</p><div class="notice">NEXUS BANK est une interface personnelle indépendante. Elle ne représente pas le Crédit Mutuel et ne se connecte à aucun compte bancaire réel.</div></div></div><div class="section card"><div class="sectionHead"><h2>Historique des opérations</h2></div><div id="operationHistory"></div></div></section>
+<section class="page" id="spending"><div class="welcome"><div><div class="eyebrow">BUDGET & CATÉGORIES</div><h1>Suivi des dépenses</h1><p>Historique des opérations au 17 novembre 2026 : commerces et sorties dans le secteur de Blain, Nantes et Saint-Herblain.</p></div></div><div class="two"><div class="card"><h2 style="color:var(--navy);font-size:16px">Enregistrer une dépense</h2><div class="field"><label>INTITULÉ</label><input id="expenseName" placeholder="Ex. Abonnement"></div><div class="field"><label>CATÉGORIE</label><select id="expenseCategory"><option>Alimentation</option><option>Courses</option><option>Restauration</option><option>Transport</option><option>Loisirs</option><option>Sorties</option><option>Vêtements</option><option>Soins</option><option>Abonnements</option><option>Autre</option></select></div><div class="field"><label>MONTANT (€)</label><input id="expenseAmount" type="number" min=".01" step=".01" placeholder="0,00"></div><button class="btn" id="addExpense">Ajouter la dépense</button></div><div class="card"><h2 style="color:var(--navy);font-size:16px">Indicateurs</h2><div class="label">TOTAL DES DÉPENSES</div><div class="amount" id="spendTotal">0,00 €</div><div class="label">NOMBRE D'OPÉRATIONS</div><div class="amount" id="spendCount">0</div></div></div><div class="section card"><div class="sectionHead"><h2>Journal des dépenses</h2></div><div id="expenseHistory"></div></div></section>
+<section class="page" id="investments"><div class="welcome"><div><div class="eyebrow">PORTEFEUILLE</div><h1>Mes investissements</h1><p>Suivi des prix d’achat, valeurs de référence et performances de chaque ligne.</p></div><span class="muted small">Données de portefeuille personnelles</span></div><div class="grid"><div class="card"><div class="label">VALEUR DU PORTEFEUILLE</div><div class="amount" id="portfolioValue">—</div><div class="muted">Valeur actuelle du portefeuille</div></div><div class="card"><div class="label">MONTANT INVESTI</div><div class="amount" id="portfolioCost">—</div><div class="muted">Prix d'achat cumulés</div></div><div class="card"><div class="label">PLUS / MOINS-VALUE</div><div class="amount" id="portfolioGain">—</div><div class="muted" id="portfolioPct">—</div></div></div><div class="section card"><div class="sectionHead"><h2>Vue du portefeuille</h2><span class="muted small">Suivi du portefeuille</span></div><div id="portfolioPulse" class="portfolioPulse"></div></div><div class="section card"><div class="sectionHead"><h2>Détail des lignes</h2><span class="muted small">Prix d’achat / valeur de référence / rendement</span></div><div class="tableWrap" id="portfolioTable"></div></div><p class="muted small">Portefeuille de suivi : 12 lignes initiales et des entreprises de technologie, jeu vidéo, automobile de luxe, mode et restauration. Rockstar Games est une marque de Take-Two Interactive (TTWO), pas une société cotée séparément. Les cours affichés sont des valeurs de référence et ne sont pas des cotations en direct.</p></section><section class="page" id="savings"><div class="welcome"><div><div class="eyebrow">OBJECTIFS & ÉPARGNE</div><h1>Mon épargne</h1><p>Suivez la progression de vos coffres et de vos objectifs.</p></div></div><div class="grid"><div class="card"><div class="label">COFFRES ASSOCIÉS</div><div class="amount" id="savingTotal2" style="font-size:22px">—</div></div><div class="card"><div class="label">OBJECTIFS CUMULÉS</div><div class="amount" id="savingGoals">—</div></div><div class="card"><div class="label">PROGRESSION GLOBALE</div><div class="amount" id="savingProgress">—</div></div></div><div class="section card"><div class="sectionHead"><h2>Mes objectifs d'épargne</h2><button class="btn light" data-goto="accounts">Gérer les coffres dans NEXUS</button></div><div id="savingList"></div><div style="margin-top:18px;padding-top:10px;border-top:1px solid var(--line);font-size:10px;color:#8290a2">Valeur complémentaire liée à NEXUS : 167 857,27 €</div></div></section>
+<section class="page" id="profile"><div class="welcome"><div><div class="eyebrow">ESPACE PERSONNEL</div><h1>Mon profil</h1><p>Informations générales et paramètres de l'espace.</p></div></div><div class="two"><div class="card"><div class="profile"><div class="avatar">S</div><div><b style="color:var(--navy);font-size:18px">SOSO · Guilloux</b><div class="muted">Utilisateur principal</div></div></div><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><div class="account" style="border:0;padding:8px 0"><span class="muted">Identifiant utilisateur</span><b>SOSO-0426</b></div><div class="account" style="border:0;padding:8px 0"><span class="muted">Statut</span><b style="color:var(--green)">Actif</b></div><div class="account" style="border:0;padding:8px 0"><span class="muted">Interface</span><b>NEXUS BANK</b></div><hr style="border:0;border-top:1px solid var(--line);margin:16px 0"><h2 style="font-size:16px;color:var(--navy);margin:0 0 8px">Paramètres du compte principal</h2><div class="muted small">Modifier le solde affiché sur l'accueil</div><div class="field"><label for="accountBalanceEdit">SOLDE DU COMPTE (€)</label><input id="accountBalanceEdit" type="number" min="0" step="0.01" value="5547"></div><button class="btn red" id="saveAccountBalance">Enregistrer le solde</button><div class="muted small" id="accountBalanceFeedback" style="margin-top:8px"></div><div style="margin-top:20px;padding-top:12px;border-top:1px solid var(--line);font-size:10px;color:#8290a2">Valeur complémentaire liée à NEXUS : 167 857,27 €</div></div><div class="card"><h2 style="font-size:16px;color:var(--navy)">Sécurité & données</h2><p class="muted">Les données sont enregistrées dans le stockage local du navigateur. Cette interface n'utilise ni authentification bancaire, ni connexion à un établissement financier.</p><div class="notice">Ne saisissez pas de véritables identifiants bancaires, numéros de carte ou mots de passe. Les montants affichés sont des données locales personnalisables.</div><div class="actions"><button class="btn light" id="export">Exporter mes données</button></div></div></div></section>
+</main><div class="footer">NEXUS BANK · ESPACE BANCAIRE PERSONNEL · APPLICATION INDÉPENDANTE DE NEXUS</div><div class="modal" id="confirmModal"><div class="modalbox"><h2>Confirmer l'opération</h2><p id="confirmText" class="muted"></p><div class="actions"><button class="btn red" id="confirmYes">Confirmer</button><button class="btn light" id="confirmNo">Annuler</button></div></div></div><div class="toast" id="toast"></div>
+<script>
+const KEY='sosoNexusSharedV2';const referenceDate=new Date(2026,10,17,17,30,0);const daysAgo=n=>new Date(2026,10,17-n,12,0,0).toISOString();const demoExpenses=[
+['Leclerc Blain · courses de la semaine','Courses',72.46,29],['McDonald’s Blain · repas','Restauration',28.90,28],['Coiffeur · Blain','Soins',29.00,27],['Cinéville Saint-Herblain · 2 places','Loisirs',26.00,26],['Bershka · Atlantis','Vêtements',64.99,25],['Carrefour Nantes · courses','Courses',48.72,24],['Tram TAN · tickets et déplacements','Transport',12.00,23],['Zara · Atlantis','Vêtements',89.95,22],['Restaurant · Nantes centre','Restauration',36.50,21],['Cultura · Atlantis','Loisirs',24.90,20],['Leclerc Blain · courses','Courses',83.17,19],['Pull&Bear · Atlantis','Vêtements',54.99,18],['Boulangerie · Blain','Alimentation',13.40,17],['Bowling · Saint-Herblain','Loisirs',31.00,16],['Nike Store · Atlantis','Vêtements',94.99,15],['Stationery / fournitures lycée','Scolarité',22.80,14],['McDonald’s Blain · repas entre amis','Restauration',34.60,13],['Leclerc Blain · achats divers','Courses',56.28,12],['Café et goûter · Nantes','Sorties',18.70,11],['H&M · Atlantis','Vêtements',42.99,10],['Cinéma · Nantes','Loisirs',14.50,9],['Coiffeur · Blain','Soins',26.00,8],['Super U · Blain','Courses',67.35,7],['JD Sports · Atlantis','Vêtements',79.99,6],['Pizzeria · Saint-Herblain','Restauration',32.50,5],['TAN · pass et tickets','Transport',18.00,4],['Fnac · Nantes','Loisirs',39.90,3],['Leclerc Blain · courses','Courses',91.62,2],['Zara · Atlantis · achat vêtement','Vêtements',69.95,1],['McDonald’s Blain · repas','Restauration',25.80,0],['Boulangerie · Blain','Alimentation',9.60,0],['Café / snack · Nantes','Sorties',16.40,0],['Leclerc Blain · courses complémentaires','Courses',38.75,0],['Tram TAN · déplacement Nantes','Transport',4.60,0],['Parapharmacie · Saint-Herblain','Soins',21.90,0],['Decathlon · Atlantis','Sport',58.99,0],
+['Amazon.fr · commande écran et accessoires PC','Achats en ligne',489.90,18],
+['Zalando · commande vêtements','Achats en ligne',186.40,16],
+['Back Market · commande électronique','Achats en ligne',529.00,14],
+['Nike.com · paire et vêtements','Achats en ligne',174.99,12],
+['LDLC · équipement informatique','Informatique',829.00,10],
+['Amazon.fr · accessoires et rangement','Achats en ligne',76.85,9],
+['Fnac.com · casque audio','Achats en ligne',319.99,7],
+['SNCF Connect · billets Nantes','Transport',68.40,6],
+['Vinted · commande seconde main','Achats en ligne',92.50,5],
+['Cdiscount · fauteuil de bureau','Achats en ligne',239.90,4],
+['Apple Store · accessoires','Achats en ligne',129.00,3],
+['Steam · jeux et contenus','Loisirs numériques',54.98,2],
+['Amazon.fr · petite commande','Achats en ligne',43.70,1],
+['Zara.com · commande en ligne','Achats en ligne',119.95,0],
+['Uber Eats · repas','Restauration',37.80,0]
+];const demoPortfolio=[
+{symbol:'AAPL',name:'Apple',qty:3,buy:181.20,current:194.60},{symbol:'MC',name:'LVMH',qty:2,buy:628.00,current:611.50},{symbol:'NVDA',name:'NVIDIA',qty:4,buy:121.40,current:137.80},{symbol:'ADS',name:'adidas',qty:3,buy:218.50,current:231.20},
+{symbol:'MSFT',name:'Microsoft',qty:2,buy:402.30,current:426.80},{symbol:'AMZN',name:'Amazon',qty:3,buy:186.70,current:193.40},{symbol:'GOOGL',name:'Alphabet',qty:3,buy:169.20,current:177.60},{symbol:'TSLA',name:'Tesla',qty:2,buy:244.50,current:236.90},
+{symbol:'OR',name:"L'Oréal",qty:2,buy:386.00,current:401.50},{symbol:'RMS',name:'Hermès',qty:1,buy:2_145.00,current:2_208.00},{symbol:'AIR',name:'Airbus',qty:3,buy:158.40,current:164.20},{symbol:'SAN',name:'Sanofi',qty:4,buy:101.80,current:98.70}
+];const extraPortfolio=[
+// 5 grandes entreprises connues (valeurs de démonstration)
+{symbol:'SPCX',name:'SpaceX',sector:'Aérospatial',qty:2,buy:135,current:162},
+{symbol:'META',name:'Meta Platforms',sector:'Technologie',qty:2,buy:585,current:612},
+{symbol:'NFLX',name:'Netflix',sector:'Médias',qty:2,buy:980,current:1015},
+{symbol:'BRK.B',name:'Berkshire Hathaway',sector:'Finance',qty:1,buy:505,current:518},
+{symbol:'KO',name:'Coca-Cola',sector:'Consommation',qty:4,buy:69,current:72},
+// 22 sociétés cotées du jeu vidéo + Rockstar Games suivie séparément (non cotée)
+{symbol:'TTWO',name:'Take-Two Interactive',sector:'Gaming · société cotée',qty:3,buy:205,current:218},
+{symbol:'RSTAR',name:'Rockstar Games · GTA',sector:'Gaming · marque suivie via Take-Two (TTWO)',qty:3,buy:205,current:218},
+{symbol:'SONY',name:'Sony · PlayStation',sector:'Gaming',qty:2,buy:27,current:29},
+{symbol:'NTDOY',name:'Nintendo',sector:'Gaming',qty:3,buy:14,current:15},
+{symbol:'EA',name:'Electronic Arts',sector:'Gaming',qty:2,buy:205,current:212},
+{symbol:'UBI.PA',name:'Ubisoft',sector:'Gaming',qty:5,buy:4.2,current:4.5},
+{symbol:'CCOEY',name:'Capcom',sector:'Gaming',qty:3,buy:14,current:15.2},
+{symbol:'SGAMY',name:'Sega Sammy',sector:'Gaming',qty:4,buy:5.1,current:5.4},
+{symbol:'7832.T',name:'Bandai Namco',sector:'Gaming',qty:3,buy:14,current:14.8},
+{symbol:'9766.T',name:'Konami',sector:'Gaming',qty:2,buy:28,current:29.5},
+{symbol:'CDR.WA',name:'CD Projekt',sector:'Gaming',qty:2,buy:265,current:278},
+{symbol:'RBLX',name:'Roblox',sector:'Gaming',qty:3,buy:44,current:47},
+{symbol:'0700.HK',name:'Tencent',sector:'Gaming / Technologie',qty:2,buy:590,current:615},
+{symbol:'NTES',name:'NetEase',sector:'Gaming',qty:2,buy:120,current:124},
+{symbol:'3659.T',name:'Nexon',sector:'Gaming',qty:3,buy:2850,current:3010},
+{symbol:'259960.KS',name:'Krafton',sector:'Gaming',qty:1,buy:310000,current:325000},
+{symbol:'SQNXF',name:'Square Enix',sector:'Gaming',qty:3,buy:22,current:23.5},
+{symbol:'3635.T',name:'Koei Tecmo',sector:'Gaming',qty:2,buy:1850,current:1920},
+{symbol:'REMEDY.HE',name:'Remedy Entertainment',sector:'Gaming',qty:3,buy:14.5,current:15.3},
+{symbol:'PDX.ST',name:'Paradox Interactive',sector:'Gaming',qty:2,buy:145,current:151},
+{symbol:'DEVO.L',name:'Devolver Digital',sector:'Gaming',qty:10,buy:0.07,current:0.075},
+{symbol:'U',name:'Unity Software',sector:'Gaming / Technologie',qty:4,buy:31,current:33},
+{symbol:'ALATA.PA',name:'Atari',sector:'Gaming',qty:20,buy:0.15,current:0.17},
+// Marques automobiles de prestige — sociétés cotées ou groupes propriétaires
+{symbol:'RACE.MI',name:'Ferrari',sector:'Automobile de luxe',qty:2,buy:390,current:405},
+{symbol:'P911.DE',name:'Porsche',sector:'Automobile de luxe',qty:2,buy:46,current:48},
+{symbol:'MBG.DE',name:'Mercedes-Benz',sector:'Automobile de luxe',qty:2,buy:58,current:61},
+{symbol:'BMW.DE',name:'BMW',sector:'Automobile de luxe',qty:2,buy:82,current:85},
+{symbol:'AML.L',name:'Aston Martin',sector:'Automobile de luxe',qty:3,buy:0.9,current:0.95},
+{symbol:'VOW3.DE',name:'Lamborghini · Volkswagen Group',sector:'Automobile de luxe · groupe propriétaire',qty:2,buy:105,current:109},
+{symbol:'STLAM.MI',name:'Maserati · Stellantis',sector:'Automobile de luxe · groupe propriétaire',qty:2,buy:8.5,current:8.9},
+// Maisons de mode et de luxe — tickers des groupes cotés
+{symbol:'KER.PA',name:'Gucci · Saint Laurent (Kering)',sector:'Mode & luxe',qty:2,buy:240,current:248},
+{symbol:'CFR.SW',name:'Cartier · Richemont',sector:'Mode & luxe · groupe propriétaire',qty:2,buy:170,current:176},
+{symbol:'BRBY.L',name:'Burberry',sector:'Mode & luxe',qty:2,buy:13,current:13.5},
+{symbol:'1913.HK',name:'Prada',sector:'Mode & luxe',qty:2,buy:55,current:58},
+{symbol:'MONC.MI',name:'Moncler',sector:'Mode & luxe',qty:2,buy:48,current:50},
+{symbol:'RL',name:'Ralph Lauren',sector:'Mode & luxe',qty:2,buy:380,current:395},
+{symbol:'TPR',name:'Coach · Tapestry',sector:'Mode & luxe · groupe propriétaire',qty:2,buy:125,current:132},
+// Restauration rapide et chaînes internationales
+{symbol:'MCD',name:"McDonald's",sector:'Restauration rapide',qty:3,buy:280,current:286},
+{symbol:'QSR',name:'Burger King · Restaurant Brands',sector:'Restauration rapide · groupe propriétaire',qty:2,buy:75,current:77},
+{symbol:'YUM',name:'KFC · Pizza Hut · Taco Bell (Yum! Brands)',sector:'Restauration rapide · groupe propriétaire',qty:2,buy:160,current:165},
+{symbol:'WEN',name:"Wendy's",sector:'Restauration rapide',qty:3,buy:9,current:9.2},
+{symbol:'DPZ',name:"Domino's Pizza",sector:'Restauration rapide',qty:2,buy:350,current:360},
+{symbol:'CMG',name:'Chipotle',sector:'Restauration rapide',qty:2,buy:36,current:37},
+{symbol:'SBUX',name:'Starbucks',sector:'Restauration & cafés',qty:2,buy:108,current:111},
+{symbol:'PZZA',name:"Papa John's",sector:'Restauration rapide',qty:2,buy:40,current:41}
+];
+function mergePortfolio(existing){const rows=Array.isArray(existing)?existing:[];const known=new Set(rows.map(x=>x.symbol));const saved=rows.map(x=>x.symbol==='RSTAR'?{...x,name:'Rockstar Games · GTA',sector:'Gaming · marque suivie via Take-Two (TTWO)'}:x);return [...saved,...extraPortfolio.filter(x=>!known.has(x.symbol))]}
+const makeDemoExpenses=()=>demoExpenses.map((x,i)=>({id:'demo-e'+i,name:x[0],category:x[1],amount:x[2],date:daysAgo(x[3]),demo:true}));const initial={vaults:[],transactions:[],expenses:makeDemoExpenses(),portfolio:[...demoPortfolio,...extraPortfolio],accountBalance:5547};;let state=load();if(!localStorage.getItem(KEY)){localStorage.setItem(KEY,JSON.stringify(state))}function load(){try{let s=JSON.parse(localStorage.getItem(KEY));if(s&&Array.isArray(s.vaults)){const personal=(Array.isArray(s.expenses)?s.expenses:[]).filter(x=>!x.demo);s.expenses=[...makeDemoExpenses(),...personal];s.portfolio=mergePortfolio(s.portfolio);if(!Number.isFinite(Number(s.accountBalance)))s.accountBalance=5547;localStorage.setItem(KEY,JSON.stringify(s));return s}}catch(e){}return initial}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));render()}
+function money(n){return Number(n||0).toLocaleString('fr-FR',{style:'currency',currency:'EUR'})}function total(){return state.vaults.reduce((a,v)=>a+Number(v.balance||0),0)}function toast(s){let t=document.getElementById('toast');t.textContent=s;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));render()}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>go(b.dataset.page));document.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>go(b.dataset.goto));
+function options(){let html=state.vaults.map(v=>`<option value="${esc(v.id)}">${esc(v.name)} — ${money(v.balance)}</option>`).join('');['from','to'].forEach(id=>{let el=document.getElementById(id),old=el.value;el.innerHTML=html;if([...el.options].some(o=>o.value===old))el.value=old})}
+function tableTransactions(){let arr=state.transactions||[];return arr.length?`<div class="tableWrap"><table><thead><tr><th>DATE</th><th>LIBELLÉ</th><th>TYPE</th><th>MONTANT</th></tr></thead><tbody>${arr.slice(0,40).map(x=>`<tr><td>${new Date(x.date).toLocaleString('fr-FR')}</td><td>${esc(x.description)}<br><span class="muted small">${esc(x.from||'')} ${x.to?'→ '+esc(x.to):''}</span></td><td>${esc(x.type)}</td><td>${money(x.amount)}</td></tr>`).join('')}</tbody></table></div>`:'<p class="muted">Aucune opération enregistrée.</p>'}
+function renderPortfolio(){let rows=state.portfolio||[],cost=rows.reduce((a,v)=>a+v.qty*v.buy,0),value=rows.reduce((a,v)=>a+v.qty*v.current,0),gain=value-cost,pct=cost?gain/cost*100:0;document.getElementById('portfolioValue').textContent=money(value);document.getElementById('portfolioCost').textContent=money(cost);let ge=document.getElementById('portfolioGain');ge.textContent=(gain>=0?'+':'')+money(gain);ge.style.color=gain>=0?'var(--green)':'#b43c4b';document.getElementById('portfolioPct').textContent=(pct>=0?'+':'')+pct.toFixed(2).replace('.',',')+' % depuis achat';document.getElementById('portfolioTable').innerHTML=`<table><thead><tr><th>VALEUR</th><th>QUANTITÉ</th><th>PRIX D'ACHAT</th><th>COURS ACTUEL</th><th>VALEUR LIGNE</th><th>PERFORMANCE</th></tr></thead><tbody>${rows.map(v=>{let p=(v.current-v.buy)/v.buy*100,g=(v.current-v.buy)*v.qty;return `<tr><td><b>${esc(v.name)}</b><br><span class="muted">${esc(v.symbol)}${v.sector?' · '+esc(v.sector):''}</span></td><td>${v.qty}</td><td>${money(v.buy)}</td><td>${money(v.current)}</td><td><b>${money(v.current*v.qty)}</b></td><td class="${p>=0?'credit':'debit'}">${p>=0?'+':''}${p.toFixed(2).replace('.',',')} %<br><span class="muted">${g>=0?'+':''}${money(g)}</span></td></tr>`}).join('')}</tbody></table>`;document.getElementById('portfolioPulse').innerHTML=[['Valeur actuelle',money(value)],['Capital investi',money(cost)],['Performance globale',(pct>=0?'+':'')+pct.toFixed(2).replace('.',',')+' %']].map(x=>`<div class="pulseBox"><span>${x[0].toUpperCase()}</span><b>${x[1]}</b></div>`).join('')}
+document.getElementById('saveAccountBalance').onclick=()=>{const v=Number(document.getElementById('accountBalanceEdit').value);if(!Number.isFinite(v)||v<0){toast('Montant invalide');return}state.accountBalance=Math.round(v*100)/100;localStorage.setItem(KEY,JSON.stringify(state));render();document.getElementById('accountBalanceFeedback').textContent='Solde enregistré.';toast('Solde du compte mis à jour')};
+function render(){let t=total(),goals=state.vaults.reduce((a,v)=>a+Number(v.goal||0),0),sp=state.expenses.reduce((a,x)=>a+x.amount,0);document.getElementById('accountBalance').textContent=money(state.accountBalance);document.getElementById('accountBalanceEdit').value=Number(state.accountBalance).toFixed(2);document.getElementById('savingsTotal').textContent=state.vaults.length+' coffres';document.getElementById('vaultCountBank').textContent='Réserves associées à NEXUS';document.getElementById('expensesTotal').textContent=money(sp);document.getElementById('updated').textContent=new Date().toLocaleTimeString('fr-FR');document.getElementById('date').textContent=new Date().toLocaleDateString('fr-FR');
+let acc=state.vaults.map(v=>`<div class="account"><div class="row"><div class="accountIcon">${esc(v.icon)}</div><div><div class="accountName">${esc(v.name)}</div><div class="muted small">${esc(v.category)}</div></div></div><div class="accountAmt">${money(v.balance)}</div></div>`).join('')||'<p class="muted">Aucun coffre disponible.</p>';document.getElementById('homeAccounts').innerHTML=acc;document.getElementById('accountCards').innerHTML=state.vaults.map(v=>`<div class="card"><div class="label">${esc(v.category).toUpperCase()}</div><div style="font-size:22px;margin:8px 0">${esc(v.icon)} <b style="color:var(--navy)">${esc(v.name)}</b></div><div class="amount">${money(v.balance)}</div><div class="muted small">${v.goal?'Objectif : '+money(v.goal):'Aucun objectif défini'}</div></div>`).join('');document.getElementById('accountCount').textContent=state.vaults.length+' réserves';document.getElementById('accountTable').innerHTML=state.vaults.length?`<table><thead><tr><th>COMPTE</th><th>CATÉGORIE</th><th>OBJECTIF</th><th>SOLDE</th></tr></thead><tbody>${state.vaults.map(v=>`<tr><td>${esc(v.icon)} ${esc(v.name)}</td><td>${esc(v.category)}</td><td>${v.goal?money(v.goal):'—'}</td><td><b>${money(v.balance)}</b></td></tr>`).join('')}</tbody></table>`:'<p class="muted">Aucun coffre.</p>';
+document.getElementById('homeOps').innerHTML=tableTransactions();document.getElementById('operationHistory').innerHTML=tableTransactions();document.getElementById('spendTotal').textContent=money(sp);document.getElementById('spendCount').textContent=state.expenses.length;document.getElementById('expenseHistory').innerHTML=state.expenses.length?`<div class="tableWrap"><table><thead><tr><th>DATE</th><th>INTITULÉ</th><th>CATÉGORIE</th><th>MONTANT</th></tr></thead><tbody>${state.expenses.slice().reverse().map(x=>`<tr><td>${new Date(x.date).toLocaleDateString('fr-FR')}</td><td>${esc(x.name)}</td><td>${esc(x.category)}</td><td class="debit">− ${money(x.amount)}</td></tr>`).join('')}</tbody></table></div>`:'<p class="muted">Aucune dépense saisie.</p>';
+document.getElementById('savingTotal2').textContent=state.vaults.length+' coffres';document.getElementById('savingGoals').textContent=money(goals);document.getElementById('savingProgress').textContent=(goals?t/goals*100:0).toFixed(1).replace('.',',')+' %';document.getElementById('savingList').innerHTML=state.vaults.map(v=>{let p=v.goal?Math.min(100,v.balance/v.goal*100):0;return `<div style="padding:13px 0;border-bottom:1px solid var(--line)"><div class="row" style="justify-content:space-between"><b>${esc(v.icon)} ${esc(v.name)}</b><b>${money(v.balance)}</b></div><div class="muted small">${v.goal?'Objectif '+money(v.goal)+' · '+p.toFixed(1)+' % atteint':'Aucun objectif défini'}</div><div class="barline"><span style="width:${p}%"></span></div></div>`}).join('')||'<p class="muted">Aucun coffre.</p>';options();drawDonut();renderPortfolio()}
+function drawDonut(){let el=document.getElementById('bankAssetSummary');if(!el)return;let sum=total();el.innerHTML=state.vaults.map(v=>{let p=sum?v.balance/sum*100:0;return `<div class="assetLine"><div><b>${esc(v.name)}</b><div class="assetTrack"><span style="width:${p.toFixed(1)}%"></span></div></div><b>${money(v.balance)}</b></div>`}).join('')||'<span class="muted">Aucun compte disponible</span>'}
+let pending=null;document.getElementById('transfer').onclick=()=>{let a=state.vaults.find(v=>v.id===document.getElementById('from').value),b=state.vaults.find(v=>v.id===document.getElementById('to').value),n=Math.round(Number(document.getElementById('amount').value)*100)/100;if(!a||!b||a.id===b.id||!Number.isFinite(n)||n<=0||n>a.balance){toast('Vérifiez les comptes et le montant');return}pending={a,b,n,label:document.getElementById('label').value.trim()};document.getElementById('confirmText').textContent=`Confirmer le transfert de ${money(n)} depuis ${a.name} vers ${b.name} ?`;document.getElementById('confirmModal').classList.add('open')};
+document.getElementById('confirmNo').onclick=()=>document.getElementById('confirmModal').classList.remove('open');document.getElementById('confirmYes').onclick=()=>{if(!pending)return;let {a,b,n,label}=pending;a.balance=Math.round((a.balance-n)*100)/100;b.balance=Math.round((b.balance+n)*100)/100;state.transactions.unshift({id:'t'+Date.now(),type:'VIREMENT INTERNE',description:label||'Virement interne',amount:n,from:a.name,to:b.name,date:new Date().toISOString()});pending=null;document.getElementById('confirmModal').classList.remove('open');document.getElementById('amount').value='';document.getElementById('label').value='';localStorage.setItem(KEY,JSON.stringify(state));render();toast('Virement enregistré')};
+document.getElementById('addExpense').onclick=()=>{let name=document.getElementById('expenseName').value.trim(),amount=Math.round(Number(document.getElementById('expenseAmount').value)*100)/100;if(!name||!Number.isFinite(amount)||amount<=0){toast('Saisissez un libellé et un montant valide');return}state.expenses.push({id:'e'+Date.now(),name,category:document.getElementById('expenseCategory').value,amount,date:new Date().toISOString()});localStorage.setItem(KEY,JSON.stringify(state));document.getElementById('expenseName').value='';document.getElementById('expenseAmount').value='';render();toast('Dépense ajoutée')};
+document.getElementById('export').onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='nexus-bank-data.json';a.click();URL.revokeObjectURL(a.href)};
+window.addEventListener('storage',e=>{if(e.key===KEY){state=load();render();toast('Comptes actualisés depuis NEXUS')}});
+window.addEventListener('resize',()=>{drawDonut();renderPortfolio()});setInterval(()=>{(state.portfolio||[]).forEach(v=>{v.current=Math.max(.01,v.current*(1+(Math.random()-.48)*.0018))});renderPortfolio()},1800);render();
+</script></body></html>
